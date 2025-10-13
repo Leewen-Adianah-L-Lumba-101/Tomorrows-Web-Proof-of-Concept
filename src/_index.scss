@@ -1,0 +1,135 @@
+@use "_variables";
+
+body {
+    background-color: variables.$primary-color;
+}
+
+.index {
+    display: grid;
+    grid-template-areas: "navbar"
+    "opening"
+    "instr1"
+    "instr2"
+    "instr3"
+    "gotit"
+    "footer";
+    grid-template-rows: repeat(7,auto);
+    grid-template-columns: 100%;
+    object-fit: contain;
+}
+
+header {
+    grid-area: navbar;
+    display: flex;
+    position: sticky;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.navigator {
+    background-color: variables.$lion-brown;
+    max-height: 140px;
+    margin: 0;
+
+    a {
+        color: white;
+        margin: 0 2rem;
+        }
+}
+
+.opening {
+    grid-area: opening;
+    height: 560px;
+    max-height: 660px;
+}
+
+.instr1, .instr2, .instr3, .gotit {
+    height: 560px;
+}
+
+.instr1, .instr3 {
+    background-color: variables.$secondary-color;
+}
+
+.instr1 {
+    grid-area: instr1;
+}
+
+.instr2 {
+    grid-area: instr2;
+}
+
+.instr3 {
+    grid-area: instr3;
+}
+
+.gotit {
+    grid-area: gotit;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: variables.$cafe-brown;
+    height: 360px;
+}
+
+.backtotopdiv:hover {
+    #backtotopborder{
+        animation: spin 35s infinite linear;
+        left: 23px;
+    }
+}
+
+#backtotopbutton {
+    position: fixed;
+    background-color: variables.$lion-brown;
+
+    bottom: 20px;
+    left: 30px;
+    z-index: 99;
+    outline: none;
+
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 200px;
+
+    img {
+        width: 80%;
+        object-fit: fit;
+        padding: 0;
+    }
+}
+
+#backtotopborder {
+    position: fixed;
+    background: none;
+
+    bottom: 13px;
+    left: 24px;
+    z-index: 98;
+    outline: none;
+
+    cursor: pointer;
+    padding: 0;
+    height: 12%;
+}
+
+#backtotopbutton:hover {
+    background-color: #E1B576;
+    border: 0 none;
+
+    img {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+
+@keyframes spin { 
+    100% { 
+      transform: rotateZ(360deg); 
+    }
+}

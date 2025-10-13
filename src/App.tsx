@@ -1,13 +1,47 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+// import reactLogo from './assets/react.svg'
+// import Message from './Message'
+
+import Navigator from './Header-Footer'
+import BackToTop from './BacktoTop'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
+    <div className = "index">
+      <div className="header navigator">
+          <Navigator/>
+      </div>
+
+      <div className="opening">
+      </div>
+
+      <div className="instr1">
+      </div>
+
+      <div className="instr2">
+      </div>
+      
+      <div className="instr3">
+      </div>
+
+      <div className="gotit">
+      </div>
+
+      <div className="footer">
+      </div>
+
+      <BackToTop/>
+    
+    </div>
+  )
+}
+
+export default App
+
+    // <div className="App">
+    // </div>
+  // const [count, setCount] = useState(0)
+{/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -22,13 +56,10 @@ function App() {
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
+          <div><Message/></div>
         </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
-
-export default App
+      </p> */}
+      
