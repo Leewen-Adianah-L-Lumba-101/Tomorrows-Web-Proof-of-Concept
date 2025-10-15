@@ -21,8 +21,9 @@ function App() {
 
         <div className='frontheading'>
           <h1>WELCOME TO</h1>
+          <img src = "/hangit-logo-full-brown.svg"></img>
         </div>
-        
+
       </div>
 
       <div className="instr1">

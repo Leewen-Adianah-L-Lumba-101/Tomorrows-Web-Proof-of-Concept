@@ -5,8 +5,9 @@ function Navigator() {
                 <div className="admin-icon">
                     <img src = "/hangit-icon.svg" height = "50px"></img>
                 </div>
-                <a href = "/#">Register</a>
+                <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn"> Register </button>
             </div>
+            <img className="bordertop" src = "navigator-border.svg"></img>
         </header>
     )
 }
