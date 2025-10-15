@@ -4,15 +4,25 @@ import { useState } from 'react'
 
 import Navigator from './Header-Footer'
 import BackToTop from './BacktoTop'
+import Marquee from "react-fast-marquee";
 
 function App() {
   return (
     <div className = "index">
-      <div className="header navigator">
+      <div className="header">
           <Navigator/>
       </div>
 
       <div className="opening">
+        <Marquee direction="up" speed={30} autoFill={true} className='panel1'><img src = "/single-panel.png"></img></Marquee>
+        <Marquee direction="down" speed={30} autoFill={true} className='panel2'><img src = "/single-panel.png"></img></Marquee>
+        <Marquee direction="up" speed={30} autoFill={true} className='panel3'><img src = "/single-panel.png"></img></Marquee>
+        <Marquee direction="down" speed={30} autoFill={true} className='panel4'><img src = "/single-panel.png"></img></Marquee>
+
+        <div className='frontheading'>
+          <h1>WELCOME TO</h1>
+        </div>
+        
       </div>
 
       <div className="instr1">

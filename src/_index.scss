@@ -13,24 +13,27 @@ body {
     "instr3"
     "gotit"
     "footer";
-    grid-template-rows: repeat(7,auto);
-    grid-template-columns: 100%;
-    object-fit: contain;
+    grid-template-rows: auto 380px 560px 560px 560px 360px;
 }
 
 header {
-    grid-area: navbar;
-    display: flex;
-    position: sticky;
     align-items: center;
-    justify-content: space-around;
-    padding: 2rem;
+    position: sticky;
 }
 
 .navigator {
+    position: sticky;
+    top: 0;
     background-color: variables.$lion-brown;
-    max-height: 140px;
+    padding: 2rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10rem;
     margin: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
 
     a {
         color: white;
@@ -40,8 +43,40 @@ header {
 
 .opening {
     grid-area: opening;
-    height: 560px;
-    max-height: 660px;
+    display: flex;
+    grid-template-areas: "panel1 panel2 panel3 panel4";
+    grid-template-rows: none;
+    grid-template-columns: repeat(4,25%);
+    align-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0;
+    margin-left: 60px;
+    margin-right: 60px;
+
+    .frontheading {
+        font-family: variables.$CandalFont;
+        color: variables.$cafe-brown;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+    }
+}
+
+.panel1 {
+    grid-area: panel1;
+}
+
+.panel2 {
+    grid-area: panel2;
+}
+
+.panel3 {
+    grid-area: panel3;
+}
+
+.panel4 {
+    grid-area: panel4;
 }
 
 .instr1, .instr2, .instr3, .gotit {
@@ -122,9 +157,12 @@ header {
     img {
         -webkit-transform: scale(1.05);
         transform: scale(1.05);
+        transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
+
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
+    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 
