@@ -22,7 +22,7 @@ export function Home() {
       </div>
 
       <div className="instr1">
-        <div className='instructions'>Instructions</div>
+        <div className="instructions">Instructions</div>
         <div className='instrcontainerleft'>
           <img src = ""></img>
           <div className=''>
@@ -63,56 +63,72 @@ export function Home() {
       </div>
 
       <div className="gotit">
+         <div className="instructions">Got a feel?</div>
+
+         <div className="button-panel">
+          <Link to = "/canvas">
+            <button className= 'btn btn-shadow-drop-yellow btn-shadow-drop--yellowblack yellowbtn'>
+                <img src = "src\assets\drawnew-icon.svg"></img>Start Drawing
+            </button>
+          </Link>
+
+          {/* <Link to = "/canvas"> */}
+              <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn">
+                <img src = "src\assets\drawnew-icon.svg"></img>Register 
+              </button>
+          {/* </Link> */}
+
+         </div>
+
         <div className="slider">
 	        <div className="slide-track">
-            
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
           
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
 		        <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
             
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
             
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
             
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
 
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
             
             <div className="slide">
-			        <img src="src/assets/single-panel.png" height="100" width="250" alt="" />
+			        <img src="src/assets/single-panel.png" width="250" alt="" />
 		        </div>
           </div>
         </div>

@@ -11,7 +11,9 @@ function Navigator() {
                         <img src = "src/assets/hangit-icon.svg" height = "50px"></img>
                     </Link>
                 </div>
-                <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn"> Register </button>
+                <Link to = "/signup">
+                    <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn"> Register </button>
+                </Link>
             </div>
 
             <div className="ticker-wrap">

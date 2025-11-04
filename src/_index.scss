@@ -16,41 +16,6 @@ body {
     grid-template-rows: auto 400px auto auto auto auto 360px;
 }
 
-header {
-    align-items: center;
-    position: sticky;
-    z-index: 99;
-}
-
-.navigator {
-    position: sticky;    
-    top: 0;
-    background-color: variables.$lion-brown;
-    padding: 2rem;
-    z-index: 99;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 10rem;
-    margin: 0;
-    padding-left: 3rem;
-    padding-right: 3rem;
-
-    a {
-        color: white;
-        margin: 0 2rem;
-        }
-}
-
-.bordertop { 
-    position: absolute;
-    background-color: transparent;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
 .opening {
     grid-area: opening;
     display: flex;
@@ -111,18 +76,20 @@ header {
     grid-area: instr3;
 }
 
+.instructions {
+    color: variables.$body-text-color;
+    font-size: 64px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left
+}
+
 .instr1, .instr3 {
     background-color: variables.$secondary-color;
     padding-inline-start: 5rem;
     padding-inline-end: 5rem;
     color: variables.$body-text-color;
     padding-top: 4em;
-
-    .instructions {
-        font-size: 64px;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
 
     .instrcontainerleft {
         display: grid;
@@ -144,9 +111,14 @@ header {
 
 .gotit {
     grid-area: gotit;
-    align-items: center;
-	display: flex;
-	justify-content: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+	justify-content: flex-start;
+
+    padding-inline-start: 5rem;
+    padding-inline-end: 5rem;
+    padding-top: 4em;
 }
 
 .footer {
@@ -217,15 +189,12 @@ $duration: 30s;
 	100% { transform: translateX(calc(-250px * 7))}
 }
 
-
 // Styling
 .slider {
 	background: none;
-	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
 	height: 100px;
 	margin: auto;
-	overflow:hidden;
-	position: relative;
+	overflow: hidden;
 	width: 960px;
 	
 	&::before,
