@@ -24,11 +24,11 @@ export function Home() {
       <div className="instr1">
         <div className="instructions">Instructions</div>
         <div className='instrcontainerleft'>
-          <img src = ""></img>
+          <img src = "src\assets\instr1-img.svg"></img>
           <div className=''>
             <h2>1. Start a Canvas</h2>
             <p> The very cornerstone of HANGIT! is to first make merry with your lines! Press
-               the START button to open up your canvas. Write your initials, draw smiley faces, 
+               the START DRAWING button to open up your canvas. Write your initials, draw smiley faces, 
                share with the world your little talents and hit SAVE. If you feel unready or want a fresh 
                start, press CLEAR.</p>
           </div>
@@ -37,7 +37,7 @@ export function Home() {
 
       <div className="instr2">
         <div className='instrcontainerright'>
-          <img src = ""></img>
+          <img src = "src\assets\instr2-img.svg"></img>
           <div className=''>
             <h2>2. Hang it Up</h2>
             <p> All works are automatically saved to your private gallery regardless of visibility!
@@ -51,13 +51,12 @@ export function Home() {
       
       <div className="instr3">
         <div className='instrcontainerleft'>
-          <img src = "src\assets\react.svg"></img>
+          <img src = "src\assets\instr3-img.svg"></img>
           <div className=''>
-            <h2>2. Start a Canvas</h2>
+            <h2>3. View your Work</h2>
             <p> Click the top left icon to view the public gallery or your profile!
                 Your work can be seen in both your profile and (if allowed PUBLIC) in the public gallery.
             </p>
-
           </div>
         </div>
       </div>
@@ -74,7 +73,7 @@ export function Home() {
 
           {/* <Link to = "/canvas"> */}
               <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn">
-                <img src = "src\assets\drawnew-icon.svg"></img>Register 
+                <img src = "src/assets/user-icon.svg"></img>Register 
               </button>
           {/* </Link> */}
 

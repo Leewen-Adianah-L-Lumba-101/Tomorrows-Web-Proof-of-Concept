@@ -12,7 +12,7 @@ function Navigator() {
                     </Link>
                 </div>
                 <Link to = "/signup">
-                    <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn"> Register </button>
+                    <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn"> Sign Up </button>
                 </Link>
             </div>
 

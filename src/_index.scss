@@ -90,6 +90,7 @@ body {
     padding-inline-end: 5rem;
     color: variables.$body-text-color;
     padding-top: 4em;
+    margin-bottom: 5em;
 
     .instrcontainerleft {
         display: grid;
@@ -99,6 +100,7 @@ body {
 
     img {
         grid-area: img;
+        height: 80%;
     }
 }
 
@@ -107,6 +109,23 @@ body {
     padding-inline-end: 5rem;
     color: variables.$body-text-color;
     padding-top: 4em;
+    margin-bottom: 5em;
+
+    .instrcontainerright {
+        display: grid;
+        grid-template-areas: "info img"
+        "info img"
+    }
+
+    img {
+        grid-area: img;
+        height: 80%
+    }
+
+    p {
+        grid-area: info;
+        align-self: center;
+    }
 }
 
 .gotit {

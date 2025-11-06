@@ -32,10 +32,10 @@ header {
 }
 
 .backtotopdiv:hover {
-    #backtotopborder{
+    #backtotopborder {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
-        transition: 0.3s 0.2s;
+        transition: all ease-in-out;
     }
 }
 
@@ -55,6 +55,7 @@ header {
     img {
         width: 80%;
         padding: 0;
+        justify-self: center;
     }
 }
 
@@ -72,6 +73,8 @@ header {
     left: 26px;
     z-index: 98;
     outline: none;
+
+    animation: spin 35s infinite linear;
 }
 
 #backtotopbutton:hover {
@@ -179,4 +182,10 @@ header {
 .btn-shadow-drop--black {  
     border: none;  
     box-shadow: #2A2119 5px 5px 0px 0px;
+}
+
+@keyframes spin { 
+    100% { 
+      transform: rotateZ(360deg); 
+    }
 }
