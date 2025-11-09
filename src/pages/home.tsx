@@ -27,7 +27,7 @@ export function Home() {
           <img src = "src\assets\instr1-img.svg"></img>
           <div className=''>
             <h2>1. Start a Canvas</h2>
-            <p> The very cornerstone of HANGIT! is to first make merry with your lines! Press
+            <p> The very cornerstone of <span>HANGIT!</span> is to first make merry with your lines! Press
                the START DRAWING button to open up your canvas. Write your initials, draw smiley faces, 
                share with the world your little talents and hit SAVE. If you feel unready or want a fresh 
                start, press CLEAR.</p>
@@ -41,10 +41,15 @@ export function Home() {
           <div className=''>
             <h2>2. Hang it Up</h2>
             <p> All works are automatically saved to your private gallery regardless of visibility!
-              If you’re ready to take up a post at our public boards. Press the SET AS PUBLIC button after you SAVE. 
-              To toggle this, press the button again before hitting PUBLISH.
-              Be careful! Hitting publish will permanently store your artwork at the public gallery.
+              If you’re ready to take up a post at our public boards. Change the icon to <img></img> after 
+              you <span>SAVE.</span> 
             </p>
+            
+            <p>
+              To toggle this, press the eye icon again before hitting <span>PUBLISH.</span>
+              <span>Be careful! Hitting publish will permanently store your artwork at the public gallery.</span>
+            </p>
+
           </div>
         </div>
       </div>
@@ -62,7 +67,16 @@ export function Home() {
       </div>
 
       <div className="gotit">
-         <div className="instructions">Got a feel?</div>
+         <div className="gotitheader">
+            <div className='instructions'>
+              Think you got it?
+            </div>
+
+            <p className="gotitinfo">
+              Pick up that virtual pencil and get on with it!
+            </p>
+          </div>
+         
 
          <div className="button-panel">
           <Link to = "/canvas">
@@ -134,6 +148,8 @@ export function Home() {
       </div>
 
       <div className="footer">
+        <img src = "src/assets/hangit-logo-full.svg"></img>
+        <h1 className='yearfooter'>2025</h1>
       </div>
       <BackToTop/>
 

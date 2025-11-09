@@ -13,6 +13,10 @@ body {
   grid-template-areas: "navbar" "opening" "instr1" "instr2" "instr3" "gotit" "footer";
   grid-template-rows: auto 400px auto auto auto auto 360px;
 }
+.index span {
+  font-size: 20px;
+  font-weight: bold;
+}
 
 .opening {
   grid-area: opening;
@@ -57,12 +61,11 @@ body {
   width: 110%;
 }
 
-.instr1, .instr2, .instr3, .gotit {
-  height: 560px;
-}
-
 .instr1 {
   grid-area: instr1;
+}
+.instr1 img {
+  height: 29em;
 }
 
 .instr2 {
@@ -81,58 +84,98 @@ body {
   text-align: left;
 }
 
-.instr1, .instr3 {
-  background-color: #F2F7BF;
-  padding-inline-start: 5rem;
-  padding-inline-end: 5rem;
-  color: #322217;
-  padding-top: 4em;
-  margin-bottom: 5em;
-}
-.instr1 .instrcontainerleft, .instr3 .instrcontainerleft {
+.instrcontainerleft {
   display: grid;
-  grid-template-areas: "img text" "img text";
-}
-.instr1 img, .instr3 img {
-  grid-area: img;
-  height: 80%;
+  grid-template-areas: "img info" "img info";
 }
 
-.instr2 {
-  padding-inline-start: 5rem;
-  padding-inline-end: 5rem;
-  color: #322217;
-  padding-top: 4em;
-  margin-bottom: 5em;
-}
-.instr2 .instrcontainerright {
+.instrcontainerright {
   display: grid;
   grid-template-areas: "info img" "info img";
 }
+
+.instr1, .instr3 {
+  background-color: #F2F7BF;
+}
+
 .instr2 img {
-  grid-area: img;
+  height: 70%;
+}
+
+.instr3 img {
   height: 80%;
 }
-.instr2 p {
+
+.instr1, .instr2, .instr3 {
+  padding-inline-start: 5rem;
+  padding-inline-end: 5rem;
+  color: #322217;
+  padding-top: 4em;
+  padding-bottom: 2em;
+}
+.instr1 img, .instr2 img, .instr3 img {
+  grid-area: img;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.instr1 p, .instr2 p, .instr3 p {
   grid-area: info;
   align-self: center;
+  font-size: 18px;
 }
 
 .gotit {
   grid-area: gotit;
+  display: grid;
+  grid-template-areas: "title . button" "title . button" "slider slider slider" "slider slider slider";
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(4, 1fr);
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+  color: #322217;
+  margin-top: 2em;
+  justify-content: start;
+}
+.gotit .gotitheader {
+  grid-area: title;
+  padding-inline-start: 5rem;
+  white-space: nowrap;
+}
+.gotit .gotitheader p {
+  font-size: 20px;
+}
+.gotit .button-panel {
+  padding-inline-end: 5rem;
+  grid-area: button;
   display: flex;
   flex-flow: column wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-inline-start: 5rem;
-  padding-inline-end: 5rem;
-  padding-top: 4em;
+}
+.gotit .button-panel button {
+  width: 25em;
+}
+.gotit .slider {
+  grid-area: slider;
 }
 
 .footer {
   grid-area: footer;
+  display: flex;
   background-color: #533E2D;
   height: 360px;
+  align-items: baseline;
+  justify-content: center;
+  text-align: center;
+}
+.footer img {
+  margin: auto 3rem auto auto;
+}
+.footer .yearfooter {
+  font-family: "Candal", sans-serif;
+  margin: auto auto auto 0;
+}
+
+.instr1, .instr2, .instr3, .gotit {
+  max-height: 520px;
 }
 
 @keyframes spin {
@@ -174,14 +217,14 @@ body {
 }
 .slider {
   background: none;
-  height: 100px;
+  height: 200px;
   margin: auto;
   overflow: hidden;
-  width: 960px;
+  width: 100vw;
 }
 .slider::before, .slider::after {
   content: "";
-  height: 100px;
+  height: 200px;
   position: absolute;
   width: 200px;
   z-index: 2;
@@ -201,7 +244,7 @@ body {
   width: 3500px;
 }
 .slider .slide {
-  height: 100px;
+  height: 200px;
   width: 250px;
 }
 
