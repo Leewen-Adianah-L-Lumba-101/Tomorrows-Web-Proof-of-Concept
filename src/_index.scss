@@ -32,6 +32,10 @@ body {
     margin: 0;
     margin-left: 60px;
     margin-right: 60px;
+
+    button {
+        margin-top: 3rem;
+    }
 }
 
 .frontheading {
@@ -69,7 +73,7 @@ body {
     grid-area: instr1;
 
     img {
-        height: 29em;
+        height: 28em;
     }
 }
 
@@ -86,7 +90,7 @@ body {
     font-size: 64px;
     font-weight: 700;
     text-transform: uppercase;
-    text-align: left
+    text-align: left;
 }
 
 .instrcontainerleft {
@@ -133,6 +137,8 @@ body {
         grid-area: info;
         align-self: center;
         font-size: 18px;
+        margin: 2rem 4rem 3rem 2rem;
+        text-align: justify;
     }
 }
 
@@ -148,7 +154,7 @@ body {
     column-gap: 4rem;
     color: variables.$body-text-color;
     margin-top: 2em;
-    justify-content: start;
+    align-content: start;
 
     .gotitheader {
         grid-area: title;
@@ -163,11 +169,12 @@ body {
     .button-panel {
         padding-inline-end: 5rem;
         grid-area: button;
-        display: flex;
-        flex-flow: column wrap;
+        display: grid;
+        align-self: start;
 
         button {       
-            width: 25em;
+            width: 20em;
+            justify-self: start;
          }
     }
 

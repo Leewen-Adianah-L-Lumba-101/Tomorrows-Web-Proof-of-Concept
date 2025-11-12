@@ -28,8 +28,8 @@ export function Home() {
           <div className=''>
             <h2>1. Start a Canvas</h2>
             <p> The very cornerstone of <span>HANGIT!</span> is to first make merry with your lines! Press
-               the START DRAWING button to open up your canvas. Write your initials, draw smiley faces, 
-               share with the world your little talents and hit SAVE. If you feel unready or want a fresh 
+               the <span>START DRAWING</span> button to open up your canvas. Write your initials, draw smiley faces, 
+               share with the world your little talents and hit <span>SAVE.</span> If you feel unready or want a fresh 
                start, press CLEAR.</p>
           </div>
         </div>
@@ -41,13 +41,17 @@ export function Home() {
           <div className=''>
             <h2>2. Hang it Up</h2>
             <p> All works are automatically saved to your private gallery regardless of visibility!
-              If you’re ready to take up a post at our public boards. Change the icon to <img></img> after 
+              If you’re ready to take up a post at our public boards. Make the icon <img src = "src/assets/unhide.svg"></img> after 
               you <span>SAVE.</span> 
             </p>
             
             <p>
               To toggle this, press the eye icon again before hitting <span>PUBLISH.</span>
-              <span>Be careful! Hitting publish will permanently store your artwork at the public gallery.</span>
+            </p>
+            <p>
+              <span>
+                Be careful! Hitting publish will permanently store your artwork at the public gallery.
+              </span>
             </p>
 
           </div>
@@ -60,7 +64,7 @@ export function Home() {
           <div className=''>
             <h2>3. View your Work</h2>
             <p> Click the top left icon to view the public gallery or your profile!
-                Your work can be seen in both your profile and (if allowed PUBLIC) in the public gallery.
+                Your work can be seen in both your <span>profile</span> and (if allowed PUBLIC) in the <span>public gallery.</span>
             </p>
           </div>
         </div>
