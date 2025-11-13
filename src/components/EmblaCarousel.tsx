@@ -51,17 +51,34 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number"> 
                 <div className="canvasplaceholder">
+                  <div className="usercanvasplaceholder"></div>
+      
                 </div>
+                
                  <div className="canvasplaceholder">
+                  <div className="usercanvasplaceholder"></div>
+      
                 </div>
+
                  <div className="canvasplaceholder">
+                  <div className="usercanvasplaceholder"></div>
+
                 </div>
+
                  <div className="canvasplaceholder">
+                  <div className="usercanvasplaceholder"></div>
+      
                 </div>
+
                  <div className="canvasplaceholder">
+                  <div className="usercanvasplaceholder"></div>
+      
                 </div>
+
                  <div className="canvasplaceholder">
+                  <div className="usercanvasplaceholder"></div>
                 </div>
+
               </div>
             </div>
           ))}

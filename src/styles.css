@@ -596,11 +596,11 @@ section {
 }
 
 .embla {
-  max-width: 60rem;
+  max-width: 90vw;
   margin: auto;
   --slide-height: 35rem;
   --slide-spacing: 1rem;
-  --slide-size: 100%;
+  --slide-size: 98%;
   min-height: 90vh;
 }
 
@@ -639,7 +639,7 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  row-gap: 1em;
+  row-gap: 0.4em;
   -moz-column-gap: 2em;
        column-gap: 2em;
   align-items: center;
@@ -647,9 +647,15 @@ section {
 }
 
 .canvasplaceholder {
-  background-color: #F2F7BF;
+  background-color: #B88B4A;
   height: 100%;
   width: 100%;
+}
+
+.usercanvasplaceholder {
+  background-color: white;
+  border: solid #B88B4A;
+  height: 80%;
 }
 
 .embla__controls {
@@ -667,7 +673,7 @@ section {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #B88B4A;
+  background-color: #A27035;
   touch-action: manipulation;
   display: inline-flex;
   text-decoration: none;
@@ -677,7 +683,6 @@ section {
   margin: 1rem 0 0 0;
   z-index: 1;
   border-radius: 50%;
-  color: var(--text-body);
   display: flex;
   align-items: center;
   justify-content: center;

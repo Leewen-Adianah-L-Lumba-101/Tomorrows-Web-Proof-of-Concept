@@ -9,7 +9,7 @@ import { EmblaOptionsType } from 'embla-carousel'
 
 // Create constants to adjust carousel container's settings
 const OPTIONS: EmblaOptionsType = { dragFree: false }
-const SLIDE_COUNT = 5
+const SLIDE_COUNT = 7
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 const Carousel: React.FC = () => (
