@@ -2,7 +2,7 @@
 import Marquee from "react-fast-marquee";
 import { Link } from 'react-router-dom';
 
-function Navigator() {
+export default function Navigator() {
     return (
         <header>
             <div className="navigator">
@@ -11,7 +11,7 @@ function Navigator() {
                         <img src = "src/assets/hangit-icon.svg" height = "50px"></img>
                     </Link>
                 </div>
-                <Link to = "/signup">
+                <Link to = "/register">
                     <button className="btn btn-shadow-drop btn-shadow-drop--black cafewhitebtn"> Sign Up </button>
                 </Link>
             </div>
@@ -24,5 +24,3 @@ function Navigator() {
         </header>
     )
 }
-
-export default Navigator;

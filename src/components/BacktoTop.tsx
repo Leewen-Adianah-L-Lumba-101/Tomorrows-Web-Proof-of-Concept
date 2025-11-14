@@ -1,6 +1,6 @@
 // Back to Top Button
 
-function BackToTop() {
+export default function BackToTop() {
     return (
         <div className="backtotopdiv">
             <button id="backtotopbutton" title="Go to top"><img src ="src/assets/arrow-up.svg"></img></button>
@@ -8,5 +8,3 @@ function BackToTop() {
         </div>
     )
 }
-
-export default BackToTop;
