@@ -5,10 +5,9 @@
   width: auto;
 }
 
-.wrapper {
-  padding: 0;
-  margin: 0;
-  color: variables.$body-text-color;
+.wrapper, .wrapper2 {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,7 +15,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  box-sizing: border-box;
+  color: variables.$body-text-color;
 }
 
 .wrapper p {
@@ -28,24 +27,36 @@
   padding: 1.5rem;
   -ms-flex-preferred-size: 100vw;
   flex-basis: 100vw;
-  text-align: center;
-
-  label {
-    display: block;
-    margin: 1.25rem 0 1rem 0;
-    font-style: bold;
-    font-family: variables.$CandalFont;
-    text-align: left;
-  }
 }
 
-.form, .heading {
+.form .heading {
   font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
+}
+
+.or {
+  margin: 1rem 0;
+}
+
+.form label {
+  display: block;
+  margin: 1.25rem 0 1rem 0;
+}
+
+.form input {
+  text-align: left;
+  height: 2rem;
+  width: 10rem;
+  padding: .5rem 1.5rem .5rem .5rem;
+
+  background-color: variables.$secondary-color;
+  color: variables.$body-text-color;
+  border: 2px solid variables.$lion-brown;
 }
 
 .form button {
-  width: 10rem;
+  width: 100%;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
@@ -55,31 +66,20 @@
   margin-top: 1.5rem;
   border-radius: 0;
   text-align: center;
-} 
-
-input {
-  height: 2rem;
-  width: 500px;
-  padding: .5rem 1.5rem .5rem 5rem;
-  background-color: variables.$secondary-color;
-  padding-inline-start: .5rem;
-  color: variables.$body-text-color;
-  border: 2px solid variables.$lion-brown;
-  text-align: left;
 }
 
-.or {
-  margin: 2rem auto auto auto;
-  justify-self: center;
-  font-size: 3rem;
+#e-mail {
+  width: 90%;
+  min-width: 15rem;
+
 }
 
-.clickablelink a {
-  color: variables.$lion-brown;
+#loginname {
+  width: 90%;
+  min-width: 15rem;
 }
 
-
-@media (min-width: 676px) {
+@media (min-width: 542px) {
   body {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -103,33 +103,31 @@ input {
     max-width: 1100px;
   }
 
+  .wrapper2 {
+    justify-content: center;
+    
+    #pinfo {
+      text-align: center;
+    }
+  }
+
   .form {
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
+  }
 
-    input {
-      width: 250px;
-    }
-
-    button {
-      width: 10rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      margin: auto;
-      font-weight: bold;
-      margin-top: 1.5rem;
-      border-radius: 0;
-    }
+  .form input {
+    width: 90%;
   }
 
   .illustration img {
     max-width: 80%;
     height: auto;
   }
+
 }
 
-@media (max-width: 676px) {
+@media (max-width: 680px) {
   .illustration {
     display: none;
   }
@@ -141,10 +139,138 @@ input {
   margin-left: 2rem;
 }
 
-button:hover {
-  filter: brightness(95%);
-}
+// .wrapper, .wrapper2 {
+//   padding: 0;
+//   margin: 0;
+//   color: variables.$body-text-color;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   height: 100vh;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+//   box-sizing: border-box;
+// }
 
-button:active {
-  transform: scale(0.98);
-}
+// .wrapper p {
+//   font-size: 0.85rem;
+//   margin-top: 1rem;
+// }
+
+// .form {
+//   padding: 1.5rem;
+//   -ms-flex-preferred-size: 100vw;
+//   flex-basis: 100vw;
+//   text-align: center;
+// }
+
+// .form, .heading {
+//   font-size: 1.5rem;
+//   font-weight: bold;
+// }
+
+// .form label {
+//   display: block;
+//   margin: 1.25rem 0 1rem 0;
+//   font-style: bold;
+//   font-family: variables.$CandalFont;
+//   text-align: left;
+// }
+
+// .form button {
+//   width: 10rem;
+//   text-transform: uppercase;
+//   letter-spacing: 1px;
+//   border: none;
+//   margin: 0 auto;
+//   font-weight: bold;
+//   font-size: 1rem;
+//   margin-top: 1.5rem;
+//   border-radius: 0;
+//   text-align: center;
+// } 
+
+// .form input {
+//   text-align: left;
+//   height: 2rem;
+//   width: 500px;
+//   padding: .5rem 1.5rem .5rem 5rem;
+//   background-color: variables.$secondary-color;
+//   padding-inline-start: .5rem;
+//   color: variables.$body-text-color;
+//   border: 2px solid variables.$lion-brown;
+// }
+
+// .or {
+//   margin: 2rem auto auto auto;
+//   justify-self: center;
+//   font-size: 3rem;
+// }
+
+// .clickablelink a {
+//   color: variables.$lion-brown;
+// }
+
+
+// @media (min-width: 542px) {
+//   body {
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -webkit-box-pack: center;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//   }
+
+//   .wrapper {
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     height: 100vh;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     -ms-flex-pack: distribute;
+//     justify-content: space-around;
+//     padding: 1.5rem;
+//     max-width: 1100px;
+//   }
+
+//   .form {
+//     -ms-flex-preferred-size: auto;
+//     flex-basis: auto;
+
+//     input {
+//       width: 250px;
+//     }
+
+//     button {
+//       width: 10rem;
+//       text-transform: uppercase;
+//       letter-spacing: 1px;
+//       border: none;
+//       margin: auto;
+//       font-weight: bold;
+//       margin-top: 1.5rem;
+//       border-radius: 0;
+//     }
+//   }
+
+//   .illustration img {
+//     max-width: 80%;
+//     height: auto;
+//   }
+// }
+
+// @media (max-width: 676px) {
+//   .illustration {
+//     display: none;
+//   }
+// }
+
+// .signUp .illustration {
+//   order: 2;
+//   justify-self: flex-end;
+//   margin-left: 2rem;
+// }

@@ -5,7 +5,8 @@ import Canvas from './pages/canvas'
 import Gallery from './pages/maingallery'
 import Login from "./components/Login";
 import Register from "./pages/register";
-import Error  from "./components/Error";
+import Profile from "./pages/profile";
+import Error from "./components/Error";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path = "/maingallery" element = {<Gallery/>}/>
         <Route path = "/register" element = {<Register/>}/>
         <Route path="/login" element = {<Login/>} />
+        <Route path="/profile" element = {<Profile/>}/>
         <Route element = {<Error/>} />
       </Routes>
     </Router>

@@ -1,0 +1,25 @@
+@use "_variables";
+
+.profileWrapper {
+    align-items: center;
+}
+
+.profileContainer {
+    background-color: variables.$secondary-color;
+    color: variables.$body-text-color;
+    width: 50rem;
+    height: 100vh;
+    margin: 2.5rem auto auto auto;
+
+    display: grid;
+    grid-template-areas: "banner banner"
+    "tab tab2"
+    "container container";
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,auto);
+}
+
+.banner {
+    display: grid;
+    grid-template-areas: ""
+}

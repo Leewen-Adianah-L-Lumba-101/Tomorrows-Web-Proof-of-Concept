@@ -828,14 +828,12 @@ section {
   width: auto;
 }
 
-.wrapper {
-  padding: 0;
-  margin: 0;
-  color: #322217;
+.wrapper, .wrapper2 {
+  box-sizing: border-box;
   display: flex;
   height: 100vh;
   align-items: center;
-  box-sizing: border-box;
+  color: #322217;
 }
 
 .wrapper p {
@@ -846,23 +844,35 @@ section {
 .form {
   padding: 1.5rem;
   flex-basis: 100vw;
+}
+
+.form .heading {
+  font-size: 1.5rem;
+  font-weight: bold;
   text-align: center;
 }
+
+.or {
+  margin: 1rem 0;
+}
+
 .form label {
   display: block;
   margin: 1.25rem 0 1rem 0;
-  font-style: bold;
-  font-family: "Candal", sans-serif;
-  text-align: left;
 }
 
-.form, .heading {
-  font-size: 1.5rem;
-  font-weight: bold;
+.form input {
+  text-align: left;
+  height: 2rem;
+  width: 10rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  background-color: #F2F7BF;
+  color: #322217;
+  border: 2px solid #B88B4A;
 }
 
 .form button {
-  width: 10rem;
+  width: 100%;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
@@ -874,28 +884,17 @@ section {
   text-align: center;
 }
 
-input {
-  height: 2rem;
-  width: 500px;
-  padding: 0.5rem 1.5rem 0.5rem 5rem;
-  background-color: #F2F7BF;
-  padding-inline-start: 0.5rem;
-  color: #322217;
-  border: 2px solid #B88B4A;
-  text-align: left;
+#e-mail {
+  width: 90%;
+  min-width: 15rem;
 }
 
-.or {
-  margin: 2rem auto auto auto;
-  justify-self: center;
-  font-size: 3rem;
+#loginname {
+  width: 90%;
+  min-width: 15rem;
 }
 
-.clickablelink a {
-  color: #B88B4A;
-}
-
-@media (min-width: 676px) {
+@media (min-width: 542px) {
   body {
     display: flex;
     justify-content: center;
@@ -908,28 +907,24 @@ input {
     padding: 1.5rem;
     max-width: 1100px;
   }
+  .wrapper2 {
+    justify-content: center;
+  }
+  .wrapper2 #pinfo {
+    text-align: center;
+  }
   .form {
     flex-basis: auto;
   }
   .form input {
-    width: 250px;
-  }
-  .form button {
-    width: 10rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
-    margin: auto;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    border-radius: 0;
+    width: 90%;
   }
   .illustration img {
     max-width: 80%;
     height: auto;
   }
 }
-@media (max-width: 676px) {
+@media (max-width: 680px) {
   .illustration {
     display: none;
   }
@@ -940,12 +935,25 @@ input {
   margin-left: 2rem;
 }
 
-button:hover {
-  filter: brightness(95%);
+.profileWrapper {
+  align-items: center;
 }
 
-button:active {
-  transform: scale(0.98);
+.profileContainer {
+  background-color: #F2F7BF;
+  color: #322217;
+  width: 50rem;
+  height: 100vh;
+  margin: 2.5rem auto auto auto;
+  display: grid;
+  grid-template-areas: "banner banner" "tab tab2" "container container";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
+.banner {
+  display: grid;
+  grid-template-areas: "";
 }
 
 :root {

@@ -2,7 +2,7 @@ import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
 import { Link } from 'react-router-dom';
 
-function Register() {
+export default function Register() {
     async function handleSubmit(event : React.MouseEvent) {
     // Prevent default behavior, which is a navigation
     event.preventDefault();
@@ -61,6 +61,4 @@ function Register() {
     </div>
   )
 }
-
-export default Register;
 
