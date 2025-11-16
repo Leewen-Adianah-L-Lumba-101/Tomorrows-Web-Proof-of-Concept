@@ -3,23 +3,72 @@ import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
 import { Link } from 'react-router-dom';
 
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import makeStyles from "@mui/material/styles/makeStyles";
+
+// const useStyles = makeStyles({
+// tabStyle: {
+//   color: '#ffff',
+//   }
+// });
+
 export default function Profile() {
+  const [value, setValue] = React.useState('1');
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
+  // const classes = useStyles
+
   return (
     <div className="profileWrapper">
       <Navigator/>
-      <div className="profileContainer">
-        <div className="banner">
-          <div className="profilepicture"></div>
 
+      <div className="profileContainer">
+        <div className="profilebanner"></div>
+
+        <div className="profilecard">
+          <div className="profilepicture"></div>
+          <div className="username"> 
+            <p id = "userusername">
+              @PLACEHOLDERUSER
+            </p> 
+            <p>Joined ____</p> 
+            </div>
         </div>
 
         <div className="tab">
+          <Box sx={{ width: '100%', typography: 'body1' }}>
+            <TabContext value={value}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
+              <TabList onChange={handleChange} aria-label="profile tabs">
+                <Tab label="Gallery" value="1" />
+                <Tab label="Preferences" value="2" />
+              </TabList>
+            </Box>
+            <TabPanel value="1">
+              <div className="profilegallery">
+                <div className="gallerythumbnail"></div>
+                <div className="gallerythumbnail"></div>
+                <div className="gallerythumbnail"></div>
+                <div className="gallerythumbnail"></div>
+              </div>
+            </TabPanel>
 
+            <TabPanel value="2">
+
+            </TabPanel>
+            
+            </TabContext>
+          </Box>
         </div>
-
-
       </div>
-
     </div>
   )
 }

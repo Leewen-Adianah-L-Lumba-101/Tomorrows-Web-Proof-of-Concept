@@ -4,6 +4,50 @@
   font-weight: 400;
 }
 
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+@keyframes float-reverse {
+  0% {
+    transform: translatey(-10px);
+  }
+  50% {
+    transform: translatey(0px);
+  }
+  100% {
+    transform: translatey(-10px);
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1750px);
+  }
+}
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
 body {
   background-color: #FFFD77;
 }
@@ -42,6 +86,12 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+#floatanimation {
+  overflow: hidden;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
 }
 
 .panel1 {
@@ -184,20 +234,6 @@ body {
   max-height: 520px;
 }
 
-@keyframes spin {
-  100% {
-    transform: rotateZ(360deg);
-  }
-}
-@keyframes ticker {
-  0% {
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
 .ticker-wrap {
   width: 100%;
   padding-left: 100%;
@@ -213,14 +249,6 @@ body {
   display: inline-block;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-1750px);
-  }
-}
 .slider {
   background: none;
   height: 200px;
@@ -943,17 +971,66 @@ section {
   background-color: #F2F7BF;
   color: #322217;
   width: 50rem;
-  height: 100vh;
+  max-height: 60vh;
   margin: 2.5rem auto auto auto;
   display: grid;
-  grid-template-areas: "banner banner" "tab tab2" "container container";
+  grid-template-areas: "banner tab2" "userinfo tab2";
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .banner {
+  grid-area: tab;
   display: grid;
-  grid-template-areas: "";
+  grid-template-areas: "profile username";
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.profilecard {
+  display: grid;
+  grid-template-areas: "picture usernameplacehold" "picture date";
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.profilebanner {
+  grid-area: banner;
+  max-height: 15rem;
+  background-color: #533E2D;
+}
+
+.profilepicture {
+  grid-area: picture;
+  max-width: 100px;
+  max-height: 100px;
+  border: 2px solid #B88B4A;
+  background-color: #F2F7BF;
+}
+
+.username {
+  grid-area: usernameplacehold;
+  margin-left: 10px;
+}
+
+#userusername {
+  font-weight: bold;
+  color: #322217;
+}
+
+.profilegallery {
+  display: flex;
+  flex-flow: row wrap;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  row-gap: 0.5rem;
+}
+
+.gallerythumbnail {
+  background-color: #B88B4A;
+  width: 45%;
+  height: 6rem;
+  margin-bottom: 10px;
 }
 
 :root {

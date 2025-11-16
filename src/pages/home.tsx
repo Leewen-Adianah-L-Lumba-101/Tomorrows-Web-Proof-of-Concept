@@ -11,8 +11,8 @@ export function Home() {
 
       <div className="opening">
         <div className='frontheading'>
-          <h1>WELCOME TO</h1>
-          <img src = "src\assets\hangit-logo-full-brown.svg"></img>
+          <h1 id = "floatanimation" style={{ animation: "float 5s ease-in-out infinite"}}>WELCOME TO</h1>
+          <img id = "floatanimation" src = "src\assets\hangit-logo-full-brown.svg"></img>
           <Link to = "/canvas">
             <button className= 'btn btn-shadow-drop-yellow btn-shadow-drop--yellowblack yellowbtn'>
                 <img src = "src\assets\drawnew-icon.svg"></img>Start Drawing
@@ -150,7 +150,7 @@ export function Home() {
           </div>
         </div>
       </div>
-
+      
       <div className="footer">
         <img src = "src/assets/hangit-logo-full.svg"></img>
         <h1 className='yearfooter'>2025</h1>

@@ -8,18 +8,66 @@
     background-color: variables.$secondary-color;
     color: variables.$body-text-color;
     width: 50rem;
-    height: 100vh;
+    max-height: 60vh;
     margin: 2.5rem auto auto auto;
 
     display: grid;
-    grid-template-areas: "banner banner"
-    "tab tab2"
-    "container container";
+    grid-template-areas: "banner tab2"
+    "userinfo tab2";
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: repeat(2,1fr);
 }
 
 .banner {
+    grid-area: tab;
     display: grid;
-    grid-template-areas: ""
+    grid-template-areas: "profile username";
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.profilecard {
+    display: grid;
+    grid-template-areas: "picture usernameplacehold"
+    "picture date";
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.profilebanner {
+    grid-area: banner;
+    max-height: 15rem;
+    background-color: variables.$cafe-brown;
+}
+
+.profilepicture {
+    grid-area: picture;
+    max-width: 100px;
+    max-height: 100px;
+    border: 2px solid variables.$lion-brown;
+    background-color: variables.$secondary-color;
+}
+
+.username {
+    grid-area: usernameplacehold;
+    margin-left: 10px;
+}
+
+#userusername {
+    font-weight: bold;
+    color: variables.$body-text-color;
+}
+
+.profilegallery {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 2rem;
+    row-gap: .5rem;
+}
+
+.gallerythumbnail {
+    background-color: variables.$lion-brown;
+    width: 45%;
+    height: 6rem;
+    margin-bottom: 10px;
 }

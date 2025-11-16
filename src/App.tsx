@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// Import Libraries and Pages to Route to
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Canvas from './pages/canvas'
@@ -8,6 +8,7 @@ import Register from "./pages/register";
 import Profile from "./pages/profile";
 import Error from "./components/Error";
 
+// App essentially acts as a hub for switching between pages
 function App() {
   return (
     <Router>
