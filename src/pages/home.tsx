@@ -1,6 +1,7 @@
 import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import LoadingScreen from '../components/LoadingScreen'
 
 export function Home() {
   return (

@@ -1033,6 +1033,54 @@ section {
   margin-bottom: 10px;
 }
 
+.loading-container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.loading-title {
+  font-family: "Candal", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #B88B4A;
+  box-sizing: border-box;
+}
+
+@keyframes bounce {
+  100% {
+    translate: 0 -10px;
+  }
+}
+.dots {
+  display: inline-flex;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #B88B4A;
+  border-radius: 10px;
+  position: relative;
+  margin-left: 6px;
+  animation: bounce 0.5s infinite alternate;
+}
+
+.dot2 {
+  animation-delay: 100ms;
+  -webkit-animation-delay: 150ms;
+}
+
+.dot3 {
+  animation-delay: 250ms;
+  -webkit-animation-delay: 250ms;
+}
+
 :root {
   font-family: "Khula", sans-serif, khula-regular;
   line-height: 1.5;

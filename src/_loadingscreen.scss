@@ -1,0 +1,68 @@
+@use "_variables";
+@use '_index.scss';
+// NOTE TO FUTURE: PLS SEPERATE THE COMPONENT AND KEYFRAME SASS FILES !
+
+// DEFAULT
+// =====================================
+.loading-container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+// MAIN
+// =====================================
+.loading-title {
+  font-family: "Candal", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: variables.$lion-brown;
+  box-sizing: border-box;
+}
+
+@keyframes bounce {
+  100% {
+    translate: 0 -10px;
+  }
+}
+
+.dots {
+  display: inline-flex;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: variables.$lion-brown;
+  border-radius: 10px;
+  position: relative;
+  margin-left: 6px;
+  animation: bounce 0.5s infinite alternate;
+}
+
+.dot2 {
+  animation-delay: 100ms;
+  -webkit-animation-delay: 150ms;
+}
+
+.dot3 {
+  animation-delay: 250ms;
+  -webkit-animation-delay: 250ms;
+}
+
+// #dotf {
+//   animation-delay: 100ms;
+// }
+
+// #dots {
+//   animation-delay: 300ms;
+// }
+
+// #dott {
+//   animation-delay: 500ms;
+// }

@@ -1,8 +1,23 @@
 @use "_variables";
+
 // Duration for animations
 $duration: 30s;
 
 // Animations
+@mixin floatElement ($duration) {
+    @keyframes #{$float} {
+    0% {
+        transform: translatey(0px);
+    }
+     50% {
+        transform: translatey(-10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+    }
+}
+
 @keyframes float {
 	0% {
 		transform: translatey(0px);
@@ -107,7 +122,7 @@ body {
 .frontheading {
     display: flex;
     flex-flow: column wrap;
-    font-family: variables.$CandalFont;
+    font-family: "Candal", sans-serif;
     color: variables.$cafe-brown;
     text-align: center;
     margin-left: auto;
@@ -268,7 +283,7 @@ body {
     }
 
     .yearfooter {
-        font-family: variables.$CandalFont;
+        font-family: "Candal", sans-serif;
         margin: auto auto auto 0;
     }
 }
