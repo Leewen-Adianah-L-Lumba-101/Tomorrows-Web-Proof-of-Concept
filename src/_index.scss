@@ -4,7 +4,7 @@
 $duration: 30s;
 
 // Animations
-@mixin floatElement ($duration) {
+@mixin floatElement () {
     @keyframes #{$float} {
     0% {
         transform: translatey(0px);
@@ -30,7 +30,6 @@ $duration: 30s;
 	}
 }
 
-// Animations
 @keyframes float-reverse {
 	0% {
 		transform: translatey(-10px);
@@ -105,14 +104,16 @@ body {
 .opening {
     grid-area: opening;
     display: flex;
+    
     grid-template-areas: "panel1 panel2 panel3 panel4";
     grid-template-columns: repeat(4,25%);
     align-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
-    margin-left: 60px;
-    margin-right: 60px;
+
+    background: url(./assets/hangitopening.gif) no-repeat center center fixed;
+    background-size: cover;
 
     button {
         margin-top: 3rem;
@@ -201,6 +202,46 @@ body {
     }
 }
 
+.border-instructions {
+    position: absolute;
+    top: 60rem;
+
+    img {
+        height: 100%;
+    }
+
+    &::before,
+	&::after {
+		content: "";
+		height: 350px;
+		position: absolute;
+		width: 350px;
+		z-index: 2;
+	}
+	
+	&::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	&::before {
+		left: 0;
+		top: 0;
+	}
+	
+	.border-track {
+		animation: scroll $duration linear infinite;
+		display: flex;
+		width: calc(350px * 14);
+	}
+	
+	.border-filler {
+		height: 350px;
+		width: 300px;
+	}
+}
+
 .instr3 {
     img {
         height: 80%;
@@ -278,6 +319,9 @@ body {
     justify-content: center;
     text-align: center;
 
+    background: url(./assets/footerbg.gif) no-repeat center center fixed;
+    background-size: cover;
+
     img {
         margin: auto 3rem auto auto;
     }
@@ -317,17 +361,18 @@ body {
 
 .slider {
 	background: none;
-	height: 200px;
+	height: 350px;
 	margin: auto;
+    margin-top: 17rem;
 	overflow: hidden;
 	width: 100vw;
 	
 	&::before,
 	&::after {
 		content: "";
-		height: 200px;
+		height: 350px;
 		position: absolute;
-		width: 200px;
+		width: 350px;
 		z-index: 2;
 	}
 	
@@ -345,11 +390,11 @@ body {
 	.slide-track {
 		animation: scroll $duration linear infinite;
 		display: flex;
-		width: calc(250px * 14);
+		width: calc(350px * 14);
 	}
 	
 	.slide {
-		height: 200px;
-		width: 250px;
+		height: 350px;
+		width: 300px;
 	}
 }

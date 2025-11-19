@@ -1,5 +1,4 @@
 // Navigator menu
-import Marquee from "react-fast-marquee";
 import { Link } from 'react-router-dom';
 
 export default function Navigator() {

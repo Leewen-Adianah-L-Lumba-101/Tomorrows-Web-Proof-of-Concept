@@ -71,8 +71,8 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   margin: 0;
-  margin-left: 60px;
-  margin-right: 60px;
+  background: url(./assets/hangitopening.gif) no-repeat center center fixed;
+  background-size: cover;
 }
 .opening button {
   margin-top: 3rem;
@@ -155,6 +155,39 @@ body {
   height: 70%;
 }
 
+.border-instructions {
+  position: absolute;
+  top: 60rem;
+}
+.border-instructions img {
+  height: 100%;
+}
+.border-instructions::before, .border-instructions::after {
+  content: "";
+  height: 350px;
+  position: absolute;
+  width: 350px;
+  z-index: 2;
+}
+.border-instructions::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.border-instructions::before {
+  left: 0;
+  top: 0;
+}
+.border-instructions .border-track {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: 4900px;
+}
+.border-instructions .border-filler {
+  height: 350px;
+  width: 300px;
+}
+
 .instr3 img {
   height: 80%;
 }
@@ -221,6 +254,8 @@ body {
   align-items: baseline;
   justify-content: center;
   text-align: center;
+  background: url(./assets/footerbg.gif) no-repeat center center fixed;
+  background-size: cover;
 }
 .footer img {
   margin: auto 3rem auto auto;
@@ -251,16 +286,17 @@ body {
 
 .slider {
   background: none;
-  height: 200px;
+  height: 350px;
   margin: auto;
+  margin-top: 17rem;
   overflow: hidden;
   width: 100vw;
 }
 .slider::before, .slider::after {
   content: "";
-  height: 200px;
+  height: 350px;
   position: absolute;
-  width: 200px;
+  width: 350px;
   z-index: 2;
 }
 .slider::after {
@@ -275,11 +311,11 @@ body {
 .slider .slide-track {
   animation: scroll 30s linear infinite;
   display: flex;
-  width: 3500px;
+  width: 4900px;
 }
 .slider .slide {
-  height: 200px;
-  width: 250px;
+  height: 350px;
+  width: 300px;
 }
 
 header {

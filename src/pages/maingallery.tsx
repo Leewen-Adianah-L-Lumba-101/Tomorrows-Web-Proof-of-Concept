@@ -18,7 +18,7 @@ const Carousel: React.FC = () => (
   </>
 )
 
-export function Gallery() {
+export default function Gallery() {
   return (
     <div className="">
         <Navigator/>
@@ -29,5 +29,3 @@ export function Gallery() {
     </div>
   )
 }
-
-export default Gallery;

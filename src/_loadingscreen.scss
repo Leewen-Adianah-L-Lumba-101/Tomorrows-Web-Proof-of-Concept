@@ -2,8 +2,7 @@
 @use '_index.scss';
 // NOTE TO FUTURE: PLS SEPERATE THE COMPONENT AND KEYFRAME SASS FILES !
 
-// DEFAULT
-// =====================================
+
 .loading-container {
   display: grid;
   place-content: center;
@@ -14,8 +13,6 @@
   overflow: hidden;
 }
 
-// MAIN
-// =====================================
 .loading-title {
   font-family: "Candal", sans-serif;
   font-size: 4rem;

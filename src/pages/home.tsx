@@ -2,8 +2,9 @@ import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
 import { Link } from 'react-router-dom'
 import LoadingScreen from '../components/LoadingScreen'
+import Marquee from 'react-fast-marquee'
 
-export function Home() {
+export default function Home() {
   return (
     <div className = "index">
       <div className="header">
@@ -12,7 +13,7 @@ export function Home() {
 
       <div className="opening">
         <div className='frontheading'>
-          <h1 id = "floatanimation" style={{ animation: "float 5s ease-in-out infinite"}}>WELCOME TO</h1>
+          <h1 id = "floatanimation" style={{ animationDelay: "100ms"}}>WELCOME TO</h1>
           <img id = "floatanimation" src = "src\assets\hangit-logo-full-brown.svg"></img>
           <Link to = "/canvas">
             <button className= 'btn btn-shadow-drop-yellow btn-shadow-drop--yellowblack yellowbtn'>
@@ -37,6 +38,21 @@ export function Home() {
       </div>
 
       <div className="instr2">
+        <div className="border-instructions">
+          <div className="border-track">
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+          </div>
+        </div>
+        
         <div className='instrcontainerright'>
           <img src = "src\assets\instr2-img.svg"></img>
           <div className=''>
@@ -60,6 +76,20 @@ export function Home() {
       </div>
       
       <div className="instr3">
+          <div className="border-instructions" style={{top: "99rem"}}>
+            <div className="border-track">
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+              <img className="border-filler" src="src\assets\borderinstructions.gif"></img>
+            </div>
+        </div>
         <div className='instrcontainerleft'>
           <img src = "src\assets\instr3-img.svg"></img>
           <div className=''>
@@ -161,5 +191,3 @@ export function Home() {
     </div>
   )
 }
-
-export default Home;

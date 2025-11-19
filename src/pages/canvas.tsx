@@ -3,7 +3,7 @@ import BackToTop from '../components/BacktoTop'
 import { useEffect, useState } from 'react'
 import LoadingScreen from '../components/LoadingScreen'
 
-export function Canvas() {
+export default function Canvas() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -90,5 +90,3 @@ export function Canvas() {
     </div>
     )
 }
-
-export default Canvas

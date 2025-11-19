@@ -9,7 +9,7 @@ import Profile from "./pages/profile";
 import Error from "./components/Error";
 
 // App essentially acts as a hub for switching between pages
-function App() {
+export default function App() {
   return (
     <Router>
       <Routes>
@@ -23,7 +23,4 @@ function App() {
       </Routes>
     </Router>
   )
-}
-
-export default App
-      
+}      
