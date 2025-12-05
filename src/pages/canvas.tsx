@@ -9,7 +9,7 @@ export default function Canvas() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 18000);
+        }, 5000);
     }, [])
 
     return (    

@@ -15,31 +15,3 @@ export default function loadingScreen () {
     </div>
   )
 }
-
-
-
-
-
-  // const [loading, setLoading] = useState(true)
-
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //         setLoading(false)
-  //     }, 4000);
-  // }, [])
-
-  // let $ = (e : any) => document.querySelector(e);
-  // let dots = document.getElementsByClassName("dots");
-
-  // function animate (element: any, className: any) {
-  //   element.classList.add(className)
-  //   setTimeout(() => {
-  //       element.classList.remove(className)
-  //       setTimeout(() => {
-  //       animate(element, className)
-  //       }, 500);
-  //   }, 2500);
-  // }
-
-  // setInterval(() => {
-  // }, 8000)
