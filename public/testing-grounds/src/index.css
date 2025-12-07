@@ -1,0 +1,73 @@
+/* src/index.css */
+
+/* Define CSS Variables for theming */
+:root {
+  /* Default: Dark Theme */
+  --background-color: rgb(232, 232, 216); /* Dark background */
+  --text-color: #e0e0e0; /* Light text */
+  --canvas-background: #ffffff; /* Black canvas */
+  --toolbar-background: #242424; /* Dark toolbar */
+  --button-background: #333;
+  --button-hover-background: #444;
+  --button-active-background: #555;
+  --border-color: #444;
+  --primary-accent: #bb86fc; /* A nice purple for accents */
+  --canvas-border-color: #555;
+}
+
+/* Basic Reset and Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  background-color: var(--background-color); /* Apply theme background */
+  color: var(--text-color); /* Apply theme text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+#root {
+   /* Ensure root takes full viewport height */
+   min-height: 100vh;
+   display: flex; /* Helps with layout */
+   flex-direction: column; /* Helps with layout */
+}
+
+a {
+  color: var(--primary-accent);
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh; /* Prevent expanding beyond viewport */
+  min-width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto;
+  background-color: rgb(232, 232, 216);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* Prevent body scrollbars */
+}
+
+/* Created by Ram Bapat */
