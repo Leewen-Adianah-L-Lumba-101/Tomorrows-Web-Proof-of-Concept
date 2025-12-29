@@ -1,31 +1,45 @@
 
 import React, { useRef, useEffect, useState, useImperativeHandle, useCallback } from 'react';
-import styles from './CanvasComponent.module.css';
+import styles from '../_CanvasComponent.module.scss';
 
 // For the custom colour function, converting hex to rgb
 function hexToRgba(hex: string) {
-
+ 
     let r = 0, g = 0, b = 0, a = 255;
 
     // Validates the hexcode by removing whitespace
     hex = hex.trim();
+
+    // This changes the hex string into integers (as long as the length is valid)
     if (hex.length === 4) {
-        r = parseInt(hex[1] + hex[1], 16); g = parseInt(hex[2] + hex[2], 16); b = parseInt(hex[3] + hex[3], 16);
+        r = parseInt(hex[1] + hex[1], 16); 
+        g = parseInt(hex[2] + hex[2], 16); 
+        b = parseInt(hex[3] + hex[3], 16);
     } else if (hex.length === 7) {
-        r = parseInt(hex[1] + hex[2], 16); g = parseInt(hex[3] + hex[4], 16); b = parseInt(hex[5] + hex[6], 16);
+        r = parseInt(hex[1] + hex[2], 16); 
+        g = parseInt(hex[3] + hex[4], 16); 
+        b = parseInt(hex[5] + hex[6], 16);
     } else if (hex.length === 9) {
-        r = parseInt(hex[1] + hex[2], 16); g = parseInt(hex[3] + hex[4], 16); b = parseInt(hex[5] + hex[6], 16); a = parseInt(hex[7] + hex[8], 16);
+        r = parseInt(hex[1] + hex[2], 16); 
+        g = parseInt(hex[3] + hex[4], 16); 
+        b = parseInt(hex[5] + hex[6], 16); 
+        a = parseInt(hex[7] + hex[8], 16);
     } else { 
+      // If the length of the hex variable is unsuitable, return default black colour
         return [0, 0, 0, 0]; 
     }
+    // Returns rgba values as 0 if found null
     return [isNaN(r)?0:r, isNaN(g)?0:g, isNaN(b)?0:b, isNaN(a)?255:a];
 }
 
+// Incase of check that prints on console (THIS IS FOR DEBUGGING)
 function checkForNull(check: any) {
     if (check === null) {
         console.log("This element is null.")
     } else {
-        return;
+        return(
+          console.log("Element is not null.")
+        );
     }
 }
 
@@ -42,27 +56,28 @@ interface CanvasComponentHandle {
   downloadImage: () => void;
 }
 
+// Actual main Canvas Component
+// Passing interface props to the forwardRef, allowing the parent element to call methods
 export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasComponentProps>((props, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
-  const [isDrawing, setIsDrawing] = useState(false); // Mouse/Touch is down
-  const [isManipulatingShape, setIsManipulatingShape] = useState(false); // If actively drawing a shape preview
-  const [lastPosition, setLastPosition] = useState({ x: 0, y: 0}); // Track last position for stopDrawing shape finalization
-  const drawingDataRef = useRef<ImageData | null>(null); // Stores ImageData for resize restoration
-  const shapeStartPosRef = useRef<{ x: number; y: number } | null>(null); // Stores {x, y} for shape start
-  const canvasSnapshotRef = useRef<ImageData | null>(null); // Stores ImageData before shape preview
+  const [isDrawing, setIsDrawing] = useState(false);                      // Check to see if mouse/touch is down 
+  const [isManipulatingShape, setIsManipulatingShape] = useState(false);  // Check for active shape drawing
+  const [lastPosition, setLastPosition] = useState({ x: 0, y: 0});        // Track last position for shape
+  const drawingDataRef = useRef<ImageData | null>(null);                  // Stores ImageData for resize restoration
+  const shapeStartPosRef = useRef<{ x: number; y: number } | null>(null); // Stores x, y for shape start
+  const canvasSnapshotRef = useRef<ImageData | null>(null);               // Stores ImageData before shape preview
+  const parentElement = canvasRef.current?.parentElement || null;
 
-
-  // --- Stable Callbacks (No dependencies on changing props/state) ---
-
+  // fill Canvas background function callback
   const fillCanvasBackground = useCallback((context: any, canvas: any, bgColor = null) => {
-      if (!canvas || !context) return;
       const dpr = window.devicePixelRatio || 1;
       const color = bgColor || getComputedStyle(document.documentElement).getPropertyValue('--canvas-background').trim();
       const savedOperation = context.globalCompositeOperation;
       context.globalCompositeOperation = 'source-over';
       context.fillStyle = color;
-      // Use logical canvas size for fillRect when context is scaled
+      // Use canvas size for fillRect when context (website) is scaled
+      // This is to make the canvas responsive
       context.fillRect(0, 0, canvas.width / dpr, canvas.height / dpr);
       context.globalCompositeOperation = savedOperation;
   }, []);
@@ -71,8 +86,11 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
   const getCoords = useCallback((event: any) => {
      const canvas = canvasRef.current as HTMLCanvasElement | null;
      if (!canvas) return { x: 0, y: 0 };
+     
+     // Rect returns size of canvas element relative to the viewport
      const rect = canvas.getBoundingClientRect();
      let clientX, clientY;
+
      if (event.touches && event.touches.length > 0) {
          clientX = event.touches[0].clientX;
          clientY = event.touches[0].clientY;
@@ -80,99 +98,121 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
          clientX = event.clientX;
          clientY = event.clientY;
      } else {
-         // Fallback to last known position if event data is missing
-         // This might happen on mouseleave/touchend sometimes
-         return lastPosition;
+        // Fallback to last known position if event data is missing
+        // incase mouse/touch events are funky
+        return lastPosition;
      }
      
      // Calculate position relative to the element's bounding box
      return { x: clientX - rect.left, y: clientY - rect.top };
-  }, [lastPosition]); // Dependency is okay here
+  }, [lastPosition]); // Dependency
 
+  // Draw rectangle function
   const drawRectangle = useCallback((context: any, startX: any, startY: any, endX: any, endY: any) => {
-      if (!context) return; context.strokeRect(startX, startY, endX - startX, endY - startY);
+      if (!context) return; 
+      context.strokeRect(startX, startY, endX - startX, endY - startY);
   }, []);
 
+  // Draw circle function
   const drawCircle = useCallback((context: any, startX: any, startY: any, endX: any, endY: any) => {
-    if (!context) return;
-    const radiusX = Math.abs(endX - startX) / 2; const radiusY = Math.abs(endY - startY) / 2;
+    const radiusX = Math.abs(endX - startX) / 2; 
+    const radiusY = Math.abs(endY - startY) / 2;
+    const centerX = Math.min(startX, endX) + radiusX; 
+    const centerY = Math.min(startY, endY) + radiusY;
+
     if (radiusX < 0.5 || radiusY < 0.5) return; // Avoid tiny/invalid ellipses
-    const centerX = Math.min(startX, endX) + radiusX; const centerY = Math.min(startY, endY) + radiusY;
-    context.beginPath(); context.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI); context.stroke();
+    if (!context) return;
+    
+    context.beginPath(); 
+    context.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI); 
+    context.stroke();
   }, []);
 
-
-  // --- Callbacks Dependent on Props/State ---
+  // Callbacks for Props/State changes
   const { selectedColor, lineWidth, selectedTool } = props;
 
   const applyCurrentSettings = useCallback((context: any) => {
     const isEraser = selectedTool === 'eraser';
 
-    if (!context) return;
     context.globalCompositeOperation = isEraser ? 'destination-out' : 'source-over';
-    context.strokeStyle = selectedColor; context.fillStyle = selectedColor;
-    context.lineWidth = lineWidth; context.lineCap = 'round'; context.lineJoin = 'round';
+    context.strokeStyle = selectedColor; 
+    context.fillStyle = selectedColor;
+    context.lineWidth = lineWidth; 
+    context.lineCap = 'round';
+    context.lineJoin = 'round';
 
   }, [selectedColor, lineWidth, selectedTool]);
 
+  // Callback for fill bucket tool
   const floodFill = useCallback((startX: number, startY: number) => {
-    const canvas = canvasRef.current; const context = contextRef.current;
+    const canvas = canvasRef.current; 
+    const context = contextRef.current;
     if (!canvas || !context) return;
-    const canvasWidth = canvas.width; const canvasHeight = canvas.height; // Backing store size
-    const queue = [[startX, startY]]; const visited = new Set([`${startX},${startY}`]);
+
+    // Backing store size 
     const dpr = window.devicePixelRatio || 1;
+    const canvasWidth = canvas.width; 
+    const canvasHeight = canvas.height; 
 
+    // Scale logical coordinates to backing-store (pixel) coordinates up front
+    const sx = Math.floor(startX * dpr);
+    const sy = Math.floor(startY * dpr);
 
-    let imageData; try { 
-        imageData = context.getImageData(0, 0, canvasWidth, canvasHeight); 
+    if (sx < 0 || sx >= canvasWidth || sy < 0 || sy >= canvasHeight) return;
+
+    // Obtain the image data for the whole backing store
+    let imageData;
+    try { 
+      imageData = context.getImageData(0, 0, canvasWidth, canvasHeight); 
+    } catch (e) {
+      console.log("Flood fill getImageData error:", e); 
+      return; 
     }
 
-    catch (e) {
-         console.error("Flood fill getImageData error:", e); return; 
-    }
-    
     const data = imageData.data;
-    const pixelIndex = (startY * canvasWidth + startX) * 4;
+    const pixelIndex = (sy * canvasWidth + sx) * 4;
     const targetColor = [data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]];
     const fillColorRgba = hexToRgba(selectedColor); 
-
-    // Scale logical coordinates to backing store coordinates for pixel manipulation
-    startX = Math.floor(startX * dpr); startY = Math.floor(startY * dpr);
-
-    if (startX < 0 || startX >= canvasWidth || startY < 0 || startY >= canvasHeight) return;
-
-
-
-    if (!fillColorRgba) return;
     const fillColor = [fillColorRgba[0], fillColorRgba[1], fillColorRgba[2], fillColorRgba[3]];
+    
+    // If target and fill colors match, nothing to do
     if (targetColor.every((val, i) => val === fillColor[i])) return;
 
-    let iterations = 0; const maxIterations = canvasWidth * canvasHeight * 1.5; // Safety limit
-
+    const queue: [number, number][] = [[sx, sy]];
+    const visited = new Set([`${sx},${sy}`]);
+    let iterations = 0;
+    const maxIterations = Math.floor(canvasWidth * canvasHeight * 1.5); // Safety limit
 
     while (queue.length > 0 && iterations < maxIterations) {
-        iterations++;
+      iterations++;
+      const next = queue.shift();
+      if (!next) continue;
 
-        const next = queue.shift();
-        if (!next) continue;
-        const [x, y] = next;
+      const [x, y] = next;
+      const currentIndex = (y * canvasWidth + x) * 4;
 
-        const currentIndex = (y * canvasWidth + x) * 4;
-        data[currentIndex] = fillColor[0]; data[currentIndex + 1] = fillColor[1];
-        data[currentIndex + 2] = fillColor[2]; data[currentIndex + 3] = fillColor[3];
-        [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]].forEach(([nx, ny]) => {
-            if (nx >= 0 && nx < canvasWidth && ny >= 0 && ny < canvasHeight) {
-                const key = `${nx},${ny}`;
-                if (!visited.has(key)) {
-                    const neighborIndex = (ny * canvasWidth + nx) * 4;
-                    if (data[neighborIndex] === targetColor[0] && data[neighborIndex + 1] === targetColor[1] &&
-                        data[neighborIndex + 2] === targetColor[2] && data[neighborIndex + 3] === targetColor[3]) {
-                        visited.add(key); queue.push([nx, ny]);
-                    }
-                }
+      data[currentIndex]     = fillColor[0];
+      data[currentIndex + 1] = fillColor[1];
+      data[currentIndex + 2] = fillColor[2];
+      data[currentIndex + 3] = fillColor[3];
+
+      [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]].forEach(([nx, ny]) => {
+        if (nx >= 0 && nx < canvasWidth && ny >= 0 && ny < canvasHeight) {
+          const key = `${nx},${ny}`;
+          if (!visited.has(key)) {
+            const neighborIndex = (ny * canvasWidth + nx) * 4;
+            if (data[neighborIndex]     === targetColor[0] &&
+                data[neighborIndex + 1] === targetColor[1] &&
+                data[neighborIndex + 2] === targetColor[2] &&
+                data[neighborIndex + 3] === targetColor[3]) {
+                  visited.add(key);
+                  queue.push([nx, ny]);
             }
-        });
+          }
+        }
+      });
     }
+
     if (iterations >= maxIterations) console.warn("Flood fill iteration limit reached.");
     context.putImageData(imageData, 0, 0);
     try { drawingDataRef.current = context.getImageData(0, 0, canvasWidth, canvasHeight); }
@@ -245,32 +285,34 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
     }
   }, [applyCurrentSettings, getCoords, selectedTool, floodFill]); // Dependencies
 
+  // Function for drawing on canvas
   const draw = useCallback((event: any) => {
-    // No preventDefault here if attached directly to JSX element
     if (!isDrawing || !contextRef.current) return;
     const context = contextRef.current;
-    const coords = getCoords(event); // Get logical coordinates
+    // Coordinates of the mouse/touch event
+    const coords = getCoords(event); 
 
     if ((selectedTool === 'pen' || selectedTool === 'eraser') && !isManipulatingShape) {
-        context.lineTo(coords.x, coords.y); // Draw to logical coordinates
-        context.stroke();
-        setLastPosition(coords); // Update last logical position
+        context.lineTo(coords.x, coords.y);   // Draw to coordinates
+        context.stroke();                     // Draw line
+        setLastPosition(coords);              // Update to last known position
+
     } else if ((selectedTool === 'rectangle' || selectedTool === 'circle') && isManipulatingShape) {
         if (!canvasSnapshotRef.current || !shapeStartPosRef.current) return;
-        context.putImageData(canvasSnapshotRef.current, 0, 0); // Restore snapshot
-        applyCurrentSettings(context); // Re-apply style for preview
-        // Draw preview using logical coordinates
+        context.putImageData(canvasSnapshotRef.current, 0, 0);  // Restore previously saved canvas data
+        applyCurrentSettings(context);                          // Re-apply settings for shape preview
+        // Draw shape preview using last known coordinates
         if (selectedTool === 'rectangle') {
             drawRectangle(context, shapeStartPosRef.current.x, shapeStartPosRef.current.y, coords.x, coords.y);
         } else if (selectedTool === 'circle') {
             drawCircle(context, shapeStartPosRef.current.x, shapeStartPosRef.current.y, coords.x, coords.y);
         }
-        setLastPosition(coords); // Update last logical position for stopDrawing
+        setLastPosition(coords);                                // Update last position for stopDrawing
     }
   }, [isDrawing, isManipulatingShape, getCoords, selectedTool, drawRectangle, drawCircle, applyCurrentSettings]); // Dependencies
 
   const stopDrawing = useCallback(() => {
-    // No event needed if attached directly to JSX element
+    // No event needed if attached directly to TSX element
     if (!isDrawing || !contextRef.current) return;
     const context = contextRef.current;
 
@@ -294,9 +336,8 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
     setIsManipulatingShape(false);
     setIsDrawing(false); // Mouse/touch is up
 
-
     if (!canvasRef.current) {
-      alert("Could not obtain drawingDataRef, canvasRef is null");
+      checkForNull(!canvasRef.current);
       return;
     }
 
@@ -310,7 +351,7 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
   }, [isDrawing, isManipulatingShape, selectedTool, drawRectangle, drawCircle, applyCurrentSettings, lastPosition]); // Dependencies
 
 
-  // --- Effect for ONE-TIME Setup and Resize Handling (Using the version you provided) ---
+  // Effect for ONE-TIME Setup and Resize Handling
   useEffect(() => {
     const canvas : HTMLCanvasElement | null = canvasRef.current;
     if (!canvas) return;
@@ -338,8 +379,9 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
         if (!initialSetup && canvas.width === backingStoreWidth && canvas.height === backingStoreHeight) {
             return;
         }
-
-        const savedDrawing = drawingDataRef.current; // Use ref, same as your stable version
+        
+        // Use ref, same as your stable version
+        const savedDrawing = drawingDataRef.current; 
 
         // Set attributes AND style width/height, as in your stable version
         canvas.width = backingStoreWidth;
@@ -399,7 +441,6 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
     // Initial setup call
     setCanvasDimensions(true);
 
-    const parentElement = canvas.parentElement;
 
     // Observe parent element, as in your stable version
     const resizeObserver = new ResizeObserver(() => {
@@ -417,32 +458,26 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
   }, [applyCurrentSettings, fillCanvasBackground]); // Stick to stable dependencies
 
 
-  // --- Effect to Apply Settings when Props Change ---
+  // Effect to apply settings when props change
   useEffect(() => {
-    // Apply settings only if context exists and not currently drawing a shape preview
+    // if context exists and not currently drawing a shape preview
     if (contextRef.current && !isManipulatingShape) {
         applyCurrentSettings(contextRef.current);
     }
-    // Re-run when tool/style props change, or when shape manipulation finishes
+    // Rerun the default settings anyway
   }, [selectedColor, lineWidth, selectedTool, applyCurrentSettings, isManipulatingShape]);
 
+  // Actual TSX component return
   return (
-    <canvas
-      ref={canvasRef}
-      className={styles.paintCanvas}
-      onMouseDown={startDrawing}
-      onMouseMove={draw}
-      onMouseUp={stopDrawing}
-      onMouseLeave={stopDrawing} // Stop drawing if mouse leaves canvas
-      // Touch events - These might trigger passive listener warnings/errors
-      onTouchStart={startDrawing}
-      onTouchMove={draw}
-      onTouchEnd={stopDrawing}
-      onTouchCancel={stopDrawing} // Handle interruptions
+    <canvas ref={canvasRef} className={styles.paintCanvas}
+    
+      // Stop drawing if mouse leaves canvas
+      onMouseDown={startDrawing} onMouseMove={draw}
+      onMouseUp={stopDrawing} onMouseLeave={stopDrawing} 
+
+      // Touch events to trigger passive listener warnings/errors
+      onTouchStart={startDrawing} onTouchMove={draw}
+      onTouchEnd={stopDrawing} onTouchCancel={stopDrawing} // Handle interruptions
     />
   );
 });
-
-
-
-// Created by Ram Bapat

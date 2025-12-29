@@ -6,6 +6,8 @@
 @use "_registerlogin.scss";
 @use "_profilepage.scss";
 @use "_loadingscreen.scss";
+@use "_CanvasComponent.module.scss";
+@use "_Canvas.module.scss";
 
 :root {
   font-family: variables.$KhulaFont;

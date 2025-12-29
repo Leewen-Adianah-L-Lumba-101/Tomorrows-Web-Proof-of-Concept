@@ -12,6 +12,33 @@
   padding: 0;
 }
 
+/* Define CSS Variables for theming */
+:root {
+  /* Default: Dark Theme */
+  --background-color: rgb(232, 232, 216); /* Dark background */
+  --text-color: #e0e0e0; /* Light text */
+  --canvas-background: #ffffff; /* Black canvas */
+  --toolbar-background: #242424; /* Dark toolbar */
+  --button-background: #333;
+  --button-hover-background: #444;
+  --button-active-background: #555;
+  --border-color: #444;
+  --primary-accent: #bb86fc; /* A nice purple for accents */
+  --canvas-border-color: #555;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh; /* Prevent expanding beyond viewport */
+  min-width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* Prevent body scrollbars */
+}
+
 .canvasArea {
   display: flex;
   align-items: center;
@@ -37,16 +64,16 @@ section {
   background-color: variables.$secondary-color;
 }
 
-.tools-board .row {
+.tools-board, .row {
   margin-bottom: 20px;
 }
 
-.row .options {
+.row, .options {
   list-style: none;
   margin: 10px 0 0 5px;
 }
 
-.row .options .option {
+.row, .options, .option {
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -159,8 +186,4 @@ section {
   background-color: white;
   width: 100%;
   height: 100%;
-}
-
-@media (min-width: 542px) {
-  
 }
