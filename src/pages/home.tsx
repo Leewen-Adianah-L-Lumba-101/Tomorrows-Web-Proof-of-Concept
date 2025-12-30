@@ -2,7 +2,6 @@ import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
 import { Link } from 'react-router-dom'
 import LoadingScreen from '../components/LoadingScreen'
-import Marquee from 'react-fast-marquee'
 
 export default function Home() {
   return (

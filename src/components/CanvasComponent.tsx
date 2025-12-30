@@ -319,8 +319,9 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
     if (isManipulatingShape && (selectedTool === 'rectangle' || selectedTool === 'circle')) {
         if (canvasSnapshotRef.current && shapeStartPosRef.current) {
              context.putImageData(canvasSnapshotRef.current, 0, 0); // Restore before final draw
-             const endCoords = lastPosition; // Use the last position state
+             const endCoords = lastPosition;                        // Use the last position state
              applyCurrentSettings(context);
+
              // Draw final shape using logical coordinates
              if (selectedTool === 'rectangle') {
                  drawRectangle(context, shapeStartPosRef.current.x, shapeStartPosRef.current.y, endCoords.x, endCoords.y);
@@ -368,6 +369,7 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
         if (!canvas.parentElement) return;
         if (!context) return;
         const dpr = window.devicePixelRatio || 1;
+
         // Use parent size from getBoundingClientRect as in your stable version
         const { width, height } = canvas.parentElement.getBoundingClientRect();
         const displayWidth = Math.floor(width);
@@ -441,7 +443,6 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
     // Initial setup call
     setCanvasDimensions(true);
 
-
     // Observe parent element, as in your stable version
     const resizeObserver = new ResizeObserver(() => {
         if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
@@ -454,7 +455,7 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
        if (parentElement) resizeObserver.unobserve(parentElement);
        if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
     };
-    // Dependencies should match your stable version or be minimal
+    // Dependencies should match your stable version be the minimum
   }, [applyCurrentSettings, fillCanvasBackground]); // Stick to stable dependencies
 
 

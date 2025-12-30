@@ -1,5 +1,9 @@
 @use "_variables";
 
+:root {
+  --canvas-background: #FFFFFF;
+}
+
 .paintCanvas {
   display: flex;
   width: 100%;
@@ -8,46 +12,6 @@
   touch-action: none;
   user-select: none;
   -webkit-user-drag: none;
+  background-color: white;
   flex: 1;
-}
-
-:root {
-  --background-color: variables.$primary-color; 
-  --text-color: variables.$body-text-color; 
-  --canvas-background: #ffffff;
-  --toolbar-background: #242424;
-  --button-background: #333;
-  --button-hover-background: #444;
-  --button-active-background: #555;
-  --border-color: #444;
-  --primary-accent: #bb86fc; 
-  --canvas-border-color: #555;
-}
-
-a {
-  color: var(--primary-accent);
-  text-decoration: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.appContainer {
-  display: flex;
-  flex-direction: column;
-  min-height: 90vh;
-  max-height: 90vh;
-  min-width: 90vw;
-  max-width: 90vw;
-  margin: 0 auto;
-  background-color: background-color;
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  overflow: hidden;
 }

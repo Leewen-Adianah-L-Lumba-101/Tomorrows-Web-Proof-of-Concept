@@ -12,7 +12,6 @@ export default function Canvas() {
   const [selectedColor, setSelectedColor] = useState('#000000'); 
   const [lineWidth, setLineWidth] = useState(5);
   const [selectedTool, setSelectedTool] = useState('pen'); // 'pen', 'eraser', 'rectangle', 'circle', 'bucket'
-  const theme = useState('dark'); // 'dark', 'light'
   const canvasComponentRef = useRef<any>(null); // Ref to access CanvasComponent methods
 
   // --- Tool Actions (using the ref) ---

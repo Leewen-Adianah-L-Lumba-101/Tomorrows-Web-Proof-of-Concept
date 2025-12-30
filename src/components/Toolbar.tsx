@@ -2,6 +2,7 @@
 import React from 'react';
 import { FaPen, FaEraser, FaPalette, FaTrashAlt, FaDownload, FaSquare, FaCircle, FaFillDrip } from 'react-icons/fa';
 import styles from '../components/Toolbar.module.css';
+import styles2 from '../_components.module.scss';
 
 // Create interface to instantiate data types for the props
 interface ToolbarProps {
@@ -18,7 +19,7 @@ interface ToolbarProps {
 // Basic color palette for Toolbar
 const colors = [
   '#FFFFFF', '#EF130B', '#FF7100', '#FFE400', '#00CC00',
-  '#00B2FF', '#231FD3', '#A300BA', '#FF00FF', '#000000'// Example basic + custom
+  '#00B2FF', '#231FD3', '#A300BA', '#FF00FF', '#000000'// Basic colours + custom
 ];
 
 // Pass the ToolbarProps for the functions that modify class attributes
@@ -100,12 +101,20 @@ function Toolbar({selectedColor, setSelectedColor, lineWidth, setLineWidth,
         <div className={`${styles.toolSection} ${styles.actionsSection}`}>
           
           {/* Removed title span for actions on small screens */}
-          <button title="Clear Canvas" className={styles.actionButton} onClick={clearCanvas}>
-            <FaTrashAlt /> <span className={styles.buttonText}>CLEAR CANVAS</span>
+          <button title="Clear Canvas" className={` 
+          ${styles2.btn} ${styles2['btn-shadow-drop-yellow']} 
+          ${styles2['btn-shadow-drop--yellowblack']} ${styles2['yellowbtn']}`}  
+          onClick={clearCanvas}>
+
+            <FaTrashAlt /> CLEAR CANVAS
           </button>
 
-          <button title="Download Image" className={styles.actionButton} onClick={downloadImage}>
-            <FaDownload /> <span className={styles.buttonText}>SAVE AS IMAGE</span>
+          <button title="Download Image" className={` 
+          ${styles2.btn} ${styles2['btn-shadow-drop-yellow']} 
+          ${styles2['btn-shadow-drop--yellowblack']} ${styles2['yellowbtn']}`} 
+           
+          onClick={downloadImage}>
+            <FaDownload /> SAVE AS IMAGE
           </button>
         </div>
       </div>

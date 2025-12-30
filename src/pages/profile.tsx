@@ -9,13 +9,6 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import makeStyles from "@mui/material/styles/makeStyles";
-
-// const useStyles = makeStyles({
-// tabStyle: {
-//   color: '#ffff',
-//   }
-// });
 
 export default function Profile() {
   const [value, setValue] = React.useState('1');
@@ -72,7 +65,6 @@ export default function Profile() {
     </div>
   )
 }
-
 
 
 

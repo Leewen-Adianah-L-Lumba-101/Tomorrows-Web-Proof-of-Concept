@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Register() {
     async function handleSubmit(event : React.MouseEvent) {
       
-    // Prevent default behavior, which is a navigation
+    // Prevent default behavior, which is a page navigation
     event.preventDefault();
 
     const formElement = event.currentTarget as HTMLFormElement;

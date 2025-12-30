@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Candal&family=Khula:wght@300;400;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 #khula-regular {
   font-weight: 400;
 }
@@ -254,7 +253,7 @@ body {
   align-items: baseline;
   justify-content: center;
   text-align: center;
-  background: url(./assets/footerbg.gif) no-repeat center center fixed;
+  background: url(./assets/footer.gif) no-repeat center center fixed;
   background-size: cover;
 }
 .footer img {
@@ -497,185 +496,17 @@ header {
   color: #322217;
 }
 
-#root {
-  margin: 0;
-  padding: 0;
-}
-
-/* Define CSS Variables for theming */
-:root {
-  /* Default: Dark Theme */
-  --background-color: rgb(232, 232, 216); /* Dark background */
-  --text-color: #e0e0e0; /* Light text */
-  --canvas-background: #ffffff; /* Black canvas */
-  --toolbar-background: #242424; /* Dark toolbar */
-  --button-background: #333;
-  --button-hover-background: #444;
-  --button-active-background: #555;
-  --border-color: #444;
-  --primary-accent: #bb86fc; /* A nice purple for accents */
-  --canvas-border-color: #555;
-}
-
 .appContainer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  max-height: 100vh; /* Prevent expanding beyond viewport */
+  min-height: 90vh;
+  max-height: 90vh;
   min-width: 90vw;
   max-width: 90vw;
   margin: 0 auto;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  overflow: hidden; /* Prevent body scrollbars */
-}
-
-.canvasArea {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-  gap: 20px;
-  padding: 10px;
-  max-width: 1050px;
-  margin-top: 1rem;
-}
-
-section {
-  background: white;
-}
-
-.tools-board {
-  width: 210px;
-  padding: 15px 22px 0;
-  background-color: #F2F7BF;
-}
-
-.tools-board, .row {
-  margin-bottom: 20px;
-}
-
-.row, .options {
-  list-style: none;
-  margin: 10px 0 0 5px;
-}
-
-.row, .options, .option {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.option:is(:hover, .active) img {
-  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
-}
-
-.option :where(span, label) {
-  color: #5A6168;
-  cursor: pointer;
-  padding-left: 10px;
-}
-
-.option:is(:hover, .active) :where(span, label) {
-  color: #4A98F7;
-}
-
-.option #fill-color {
-  cursor: pointer;
-  height: 14px;
-  width: 14px;
-}
-
-#fill-color:checked ~ label {
-  color: #4A98F7;
-}
-
-.option #size-slider {
-  width: 100%;
-  height: 5px;
-  margin-top: 10px;
-}
-
-.colors .options {
-  display: flex;
-  justify-content: space-between;
-}
-
-.colors .option {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  margin-top: 3px;
-  position: relative;
-}
-
-.colors .option:nth-child(1) {
-  background-color: #fff;
-  border: 1px solid #bfbfbf;
-}
-
-.colors .option:nth-child(2) {
-  background-color: #000;
-}
-
-.colors .option:nth-child(3) {
-  background-color: #E02020;
-}
-
-.colors .option:nth-child(4) {
-  background-color: #6DD400;
-}
-
-.colors .option:nth-child(5) {
-  background-color: #4A98F7;
-}
-
-.colors .option.selected::before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  height: 12px;
-  width: 12px;
-  background: inherit;
-  border-radius: inherit;
-  border: 2px solid #fff;
-  transform: translate(-50%, -50%);
-}
-
-.colors .option:first-child.selected::before {
-  border-color: #ccc;
-}
-
-.option #color-picker {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.buttons button {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 11px 0;
-  font-size: 0.9rem;
-  margin-bottom: 13px;
-  cursor: pointer;
-}
-
-.drawing-board {
-  flex: 1;
+  background-color: #FFFD77;
+  transition: #FFFD77 0.3s ease, color 0.3s ease;
   overflow: hidden;
-  outline: 5px solid #533E2D;
-}
-
-.drawing-board canvas {
-  background-color: white;
-  width: 100%;
-  height: 100%;
 }
 
 .headinggallery {
@@ -1144,6 +975,10 @@ section {
   -webkit-animation-delay: 250ms;
 }
 
+:root {
+  --canvas-background: #FFFFFF;
+}
+
 .paintCanvas {
   display: flex;
   width: 100%;
@@ -1154,48 +989,8 @@ section {
      -moz-user-select: none;
           user-select: none;
   -webkit-user-drag: none;
+  background-color: white;
   flex: 1;
-}
-
-:root {
-  --background-color: variables.$primary-color;
-  --text-color: variables.$body-text-color;
-  --canvas-background: #ffffff;
-  --toolbar-background: #242424;
-  --button-background: #333;
-  --button-hover-background: #444;
-  --button-active-background: #555;
-  --border-color: #444;
-  --primary-accent: #bb86fc;
-  --canvas-border-color: #555;
-}
-
-a {
-  color: var(--primary-accent);
-  text-decoration: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.appContainer {
-  display: flex;
-  flex-direction: column;
-  min-height: 90vh;
-  max-height: 90vh;
-  min-width: 90vw;
-  max-width: 90vw;
-  margin: 0 auto;
-  background-color: background-color;
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  overflow: hidden;
 }
 
 /* src/App.module.css */
@@ -1218,7 +1013,7 @@ button {
   flex-grow: 1 1 auto;
   position: relative;
   overflow: hidden;
-  outline: 5px solid brown;
+  outline: 5px solid #533E2D;
   background-color: white;
   width: 100%;
   min-height: 100%;

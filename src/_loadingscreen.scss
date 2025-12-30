@@ -1,7 +1,7 @@
 @use "_variables";
 @use '_index.scss';
-// NOTE TO FUTURE: PLS SEPERATE THE COMPONENT AND KEYFRAME SASS FILES !
 
+// Explicity styles for the loading screen between pages
 .loading-container {
   display: grid;
   place-content: center;
@@ -50,15 +50,3 @@
   animation-delay: 250ms;
   -webkit-animation-delay: 250ms;
 }
-
-// #dotf {
-//   animation-delay: 100ms;
-// }
-
-// #dots {
-//   animation-delay: 300ms;
-// }
-
-// #dott {
-//   animation-delay: 500ms;
-// }
