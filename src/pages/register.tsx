@@ -1,35 +1,39 @@
+// filepath: c:\Users\hp\Desktop\Git Repositories\Tomorrows-Web-Proof-of-Concept\src\pages\register.tsx
 import React from 'react';
-import LoginMorpher from '../components/LoginMorpher'
+import LoginMorpher from '../components/LoginMorpher';
 import { Link } from 'react-router-dom';
 
 export default function Register() {
-    async function handleSubmit(event : React.MouseEvent) {
-      
-    // Prevent default behavior, which is a page navigation
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+
     event.preventDefault();
 
-    const formElement = event.currentTarget as HTMLFormElement;
-    const formData = new FormData(formElement);
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('mail') as string,
+      password: formData.get('password') as string,
+    };
 
-    const response = await fetch('/users/signup', {
-      method: 'POST',
-      body: JSON.stringify({
-        name: formData.get('name'),
-        email: formData.get('mail'),
-        password: formData.get('password'),
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    try {
+      const response = await fetch('http://localhost:3001/sendmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),  // Fixed: no extra {formData}
+      });
 
-    const data = await response.json();
-    if (!response.ok) {
-      // Handle error response
-      return;
+      const result = await response.json();
+      if (response.ok) {
+        window.location.href = '/login';
+        
+      } else {
+        console.log('Error:', result.error);
+      }
+    } catch (error) {
+      console.log('Error:', error);
     }
-
-    // Handle success flow
   }
-  
+
   return (
     <div className="wrapper signUp">
       <div className="illustration">
@@ -37,29 +41,26 @@ export default function Register() {
       </div>
       <div className="form">
         <div className="heading"><h2>COME HANG WITH US</h2></div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="Enter your name" />
+            <input type="text" name="name" id="name" placeholder="Enter your name" />
           </div>
           <div>
-            <label htmlFor="name">E-Mail</label>
-            <input type="text" id="mail" placeholder="Enter your mail" />
+            <label htmlFor="mail">E-Mail</label>
+            <input type="email" name="mail" id="mail" placeholder="Enter your mail" />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" placeholder="Enter you password"/>
+            <input type="password" name="password" id="password" placeholder="Enter your password" />
           </div>
-          <button type="submit" className = "btn btn-shadow-drop-yellow btn-shadow-drop--yellowblack yellowbtn">Submit</button>
-          <h2 className="or">
-            OR
-          </h2>
+          <button type="submit" className="btn btn-shadow-drop-yellow btn-shadow-drop--yellowblack yellowbtn">Submit</button>
+          <h2 className="or">OR</h2>
         </form>
         <p>
-          Have an account? <Link to="/login"> Login </Link>
+          Have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>
-  )
+  );
 }
-

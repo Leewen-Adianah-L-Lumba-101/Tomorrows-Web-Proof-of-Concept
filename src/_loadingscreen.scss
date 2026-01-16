@@ -10,6 +10,7 @@
   padding: 2px;
   box-sizing: border-box;
   overflow: hidden;
+  color: variables.$cafe-brown;
 }
 
 .loading-title {
@@ -39,6 +40,7 @@
   position: relative;
   margin-left: 6px;
   animation: bounce 0.5s infinite alternate;
+  color: white;
 }
 
 .dot2 {

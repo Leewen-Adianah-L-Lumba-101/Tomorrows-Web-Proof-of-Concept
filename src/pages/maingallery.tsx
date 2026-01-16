@@ -1,8 +1,9 @@
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
+import LoadingScreen from '../components/LoadingScreen'
 import { Link } from 'react-router-dom';
 
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import EmblaCarousel from '../components/EmblaCarousel'
 import { EmblaOptionsType } from 'embla-carousel'
@@ -19,13 +20,31 @@ const Carousel: React.FC = () => (
 )
 
 export default function Gallery() {
+    const [loading, setLoading] = useState(true)
+  
+      useEffect(() => {
+          setTimeout(() => {
+              setLoading(false)
+          }, 3000);
+      }, []) 
+  
   return (
+          
     <div className="">
-        <Navigator/>
-        <div className="headinggallery">
-          <h1>Public Gallery</h1>
-        </div>
-        <Carousel/>
+      {/* If loading is set as true, pull up the loading screen */}
+      { loading ? (
+        <LoadingScreen/>
+        ):
+          (
+            <div className="">
+              <Navigator/>
+              <div className="headinggallery">
+                <h1>Public Gallery</h1>
+              </div>
+              <Carousel/>
+            </div>
+          )
+        }
     </div>
   )
 }

@@ -946,6 +946,7 @@ section {
   padding: 2px;
   box-sizing: border-box;
   overflow: hidden;
+  color: #533E2D;
 }
 
 .loading-title {
@@ -974,6 +975,7 @@ section {
   position: relative;
   margin-left: 6px;
   animation: bounce 0.5s infinite alternate;
+  color: white;
 }
 
 .dot2 {
