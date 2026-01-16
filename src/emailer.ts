@@ -21,8 +21,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.USER_GMAIL,
-    pass: process.env.USER_PASS,
+    user: process.env.VITE_USER_GMAIL,
+    pass: process.env.VITE_API_KEY,
   },
 });
 
@@ -36,10 +36,19 @@ app.post('/sendmail', async (req: any, res: any) => {
   const htmlfileData = `
     <head>
       <style>
-        * { margin: 0; padding: 0; }
-        body { justify-content: center; text-align: center; }
-        div { display: flex; text-align: center; }
-        img { height: auto; }
+        * { 
+          margin: 0; 
+          padding: 0; 
+        }
+        body {
+          justify-content: center; 
+          text-align: center; 
+        }
+
+        img { 
+          height: auto; 
+        }
+      
       </style>
     </head>
     <body>
