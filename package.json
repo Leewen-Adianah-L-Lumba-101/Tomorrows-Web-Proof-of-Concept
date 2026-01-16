@@ -12,13 +12,18 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^5.2.8",
+    "@mapbox/polyline": "^1.2.1",
     "@mui/lab": "^7.0.1-beta.19",
     "@mui/material": "^7.3.5",
     "@react-oauth/google": "^0.12.2",
+    "@splinetool/react-spline": "^4.1.0",
     "embla-carousel": "8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "google-auth-library": "^10.5.0",
+    "gsap": "^3.14.2",
+    "lodash": "^4.17.21",
+    "polyline": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.5",
@@ -26,10 +31,14 @@
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.23",
+    "@types/mapbox__polyline": "^1.0.5",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^5.0.4",
+    "baseline-browser-mapping": "^2.9.14",
     "sass-embedded": "^1.97.1",
+    "spline": "^0.0.0",
     "typescript": "^5.2.2",
     "vite": "^7.1.9"
   }

@@ -1,5 +1,5 @@
-import Navigator from '../components/Header'
-import BackToTop from '../components/BacktoTop'
+import React from 'react';
+import LoginMorpher from '../components/LoginMorpher'
 import { Link } from 'react-router-dom';
 
 export default function Register() {
@@ -14,9 +14,9 @@ export default function Register() {
     const response = await fetch('/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        name: formData.get(''),
-        email: formData.get('userEmail'),
-        password: formData.get('userPassword'),
+        name: formData.get('name'),
+        email: formData.get('mail'),
+        password: formData.get('password'),
       }),
       headers: { 'Content-Type': 'application/json' },
     });
@@ -33,7 +33,7 @@ export default function Register() {
   return (
     <div className="wrapper signUp">
       <div className="illustration">
-        <img src="https://source.unsplash.com/random" alt="illustration" />
+        <LoginMorpher />
       </div>
       <div className="form">
         <div className="heading"><h2>COME HANG WITH US</h2></div>

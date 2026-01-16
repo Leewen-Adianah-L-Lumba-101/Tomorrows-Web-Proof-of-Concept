@@ -748,6 +748,7 @@ section {
 .illustration img {
   max-height: 500px;
   width: auto;
+  max-width: 70%;
 }
 
 .wrapper, .wrapper2 {
@@ -756,6 +757,11 @@ section {
   height: 100vh;
   align-items: center;
   color: #322217;
+}
+
+.wrapper2 {
+  background: url(./assets/hangitopening.gif) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .wrapper p {
@@ -791,6 +797,11 @@ section {
   background-color: #F2F7BF;
   color: #322217;
   border: 2px solid #B88B4A;
+}
+
+.form input:focus {
+  outline: none;
+  border: 2px solid #533E2D;
 }
 
 .form button {
@@ -1057,12 +1068,12 @@ section {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #874423;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #321d0c;
 }
 
 body {
@@ -1095,7 +1106,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: #472014;
 }
 
 button:focus,

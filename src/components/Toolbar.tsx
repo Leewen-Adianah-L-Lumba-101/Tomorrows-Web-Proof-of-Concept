@@ -105,7 +105,6 @@ function Toolbar({selectedColor, setSelectedColor, lineWidth, setLineWidth,
           ${styles2.btn} ${styles2['btn-shadow-drop-yellow']} 
           ${styles2['btn-shadow-drop--yellowblack']} ${styles2['yellowbtn']}`}  
           onClick={clearCanvas}>
-
             <FaTrashAlt /> CLEAR CANVAS
           </button>
 
