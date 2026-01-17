@@ -804,6 +804,18 @@ section {
   border: 2px solid #533E2D;
 }
 
+.form input:-webkit-autofill {
+  background-color: #FFFD77 !important;
+}
+
+.form input:-moz-autofill {
+  background-color: #FFFD77 !important;
+}
+
+.form input:autofill {
+  background-color: #FFFD77 !important;
+}
+
 .form button {
   width: 100%;
   text-transform: uppercase;

@@ -19,13 +19,13 @@ export default function Canvas() {
     if (canvasComponentRef.current) {
       canvasComponentRef.current.clearCanvas();
     }
-  }, []); // Empty dependency array as ref doesn't change
+  }, []);
 
   const handleDownloadImage = useCallback(() => {
     if (canvasComponentRef.current) {
       canvasComponentRef.current.downloadImage();
     }
-  }, []); // Empty dependency array
+  }, []);
 
   const [loading, setLoading] = useState(true)
 

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "tomorrows-web-application",
   "private": true,
   "version": "0.0.0",
@@ -6,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "server": "npx tsx src/emailer.ts"
+    "server": "npx tsx server.ts", 
+    "emailer": "npx tsx src/emailer.ts",
+    "start": "concurrently \"npm run server\" \"npm run emailer\""
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -18,6 +21,7 @@
     "@react-oauth/google": "^0.12.2",
     "@splinetool/react-spline": "^4.1.0",
     "@types/cors": "^2.8.19",
+    "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
@@ -51,6 +55,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^5.0.4",
     "baseline-browser-mapping": "^2.9.14",
+    "concurrently": "^9.2.1",
     "sass-embedded": "^1.97.1",
     "spline": "^0.0.0",
     "tsx": "^4.21.0",

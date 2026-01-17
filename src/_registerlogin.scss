@@ -66,6 +66,18 @@
   border: 2px solid variables.$cafe-brown;
 }
 
+.form input:-webkit-autofill {
+  background-color: variables.$primary-color !important;
+}
+
+.form input:-moz-autofill {
+  background-color: variables.$primary-color !important;
+}
+
+.form input:autofill {
+  background-color: variables.$primary-color !important;
+}
+
 .form button {
   width: 100%;
   text-transform: uppercase;

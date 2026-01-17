@@ -1,31 +1,47 @@
-// filepath: c:\Users\hp\Desktop\Git Repositories\Tomorrows-Web-Proof-of-Concept\src\pages\register.tsx
+// REACT COMPONENT PAGE FOR MAIN NAVIGATIONS
 import React from 'react';
 import LoginMorpher from '../components/LoginMorpher';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+// In order to connect to the MONGODB and Emailer servers,
+// the library 'concurrently' was installed to run both of simultaneously
 
 export default function Register() {
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 
+    // Prevent the page from refreshing
+    // Which is dangerous because it might mess up the form data
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    // Interchangeable with the Emailer server
+    const formElement = new FormData(event.currentTarget);
     const data = {
-      name: formData.get('name') as string,
-      email: formData.get('mail') as string,
-      password: formData.get('password') as string,
+      name: formElement.get('name') as string,
+      email: formElement.get('mail') as string,
+      password: formElement.get('password') as string,
     };
+
+    // THIS IS STRICTLY FOR THE MONGODB SERVER
+    axios.post('http://localhost:3002/register', data)
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
 
     try {
       const response = await fetch('http://localhost:3001/sendmail', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),  // Fixed: no extra {formData}
+        headers: { 
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(data), 
       });
 
+      // When the email has been sent, redirect to home page
       const result = await response.json();
       if (response.ok) {
-        window.location.href = '/login';
-        
+        window.location.href = '/';
+
       } else {
         console.log('Error:', result.error);
       }
@@ -39,6 +55,7 @@ export default function Register() {
       <div className="illustration">
         <LoginMorpher />
       </div>
+      
       <div className="form">
         <div className="heading"><h2>COME HANG WITH US</h2></div>
         <form onSubmit={handleSubmit}>
@@ -58,7 +75,7 @@ export default function Register() {
           <h2 className="or">OR</h2>
         </form>
         <p>
-          Have an account? <Link to="/login">Login</Link>
+          Got an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>
