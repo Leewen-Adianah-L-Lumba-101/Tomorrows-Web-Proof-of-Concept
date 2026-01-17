@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// CONNECTS TO MONGODB
 let dbConnected = false;
 
 mongoose.connect('mongodb://127.0.0.1:27017/HANGIT')
@@ -16,7 +17,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/HANGIT')
   })
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Fetch form data
+// Fetch form data from register.tsx
 app.post('/register', async (req, res) => {
   if (!dbConnected) {
     return res.status(500).json({ error: 'Database not connected' });

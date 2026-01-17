@@ -27,7 +27,6 @@ function Toolbar({selectedColor, setSelectedColor, lineWidth, setLineWidth,
   selectedTool, setSelectedTool, clearCanvas, downloadImage}: ToolbarProps) {
     return (
       <div className={styles.toolbar}>
-        
         {/* Tools Section */}
         <div className={styles.toolSection}>
           <span className={styles.sectionTitle}>Tools</span>
@@ -109,8 +108,8 @@ function Toolbar({selectedColor, setSelectedColor, lineWidth, setLineWidth,
           </button>
 
           <button title="Download Image" className={` 
-          ${styles2.btn} ${styles2['btn-shadow-drop-yellow']} 
-          ${styles2['btn-shadow-drop--yellowblack']} ${styles2['yellowbtn']}`} 
+          ${styles2.btn} ${styles2['btn-shadow-drop--black']} 
+          ${styles2['btn-shadow-drop']} ${styles2['cafewhitebtn']}`} 
            
           onClick={downloadImage}>
             <FaDownload /> SAVE AS IMAGE

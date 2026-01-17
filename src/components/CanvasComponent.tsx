@@ -240,9 +240,19 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
     }
 
     tempCtx.fillStyle = bgColor; tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
-    tempCtx.drawImage(canvas, 0, 0); try { const dataUrl = tempCanvas.toDataURL('image/png'); const link = document.createElement('a');
-    link.href = dataUrl; link.download = 'paint-again-drawing.png'; document.body.appendChild(link); link.click(); document.body.removeChild(link); }
-    catch (error) { console.error("Download failed:", error); alert("Could not download image."); }
+    tempCtx.drawImage(canvas, 0, 0); 
+
+    try { 
+      const dataUrl = tempCanvas.toDataURL('image/png'); 
+      const link = document.createElement('a');
+      link.href = dataUrl; 
+      link.download = 'paint-again-drawing.png'; 
+      document.body.appendChild(link); link.click(); 
+      document.body.removeChild(link); 
+    }
+    catch (error) {
+      console.error("Download failed:", error); alert("Could not download image."); 
+    }
   }, []);
 
   useImperativeHandle(ref, () => ({ clearCanvas, downloadImage }), [clearCanvas, downloadImage]);
