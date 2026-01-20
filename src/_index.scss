@@ -398,3 +398,144 @@ body {
 		width: 300px;
 	}
 }
+
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .index {
+    grid-template-rows: auto auto auto auto auto auto auto; 
+  }
+
+  .opening {
+    padding-bottom: 2rem;
+    
+    .frontheading {
+      h1 {
+        font-size: 2rem; 
+      }
+    }
+  }
+
+  .panel1, .panel2, .panel3, .panel4 {
+    width: 100%;
+  }
+
+  .instructions {
+    font-size: 2rem; 
+    text-align: center;
+  }
+
+  .instrcontainerleft, .instrcontainerright {
+    grid-template-areas: "img" 
+                         "info";
+    grid-template-rows: 1fr;
+    gap: 1rem;
+  }
+
+  .instr1, .instr2, .instr3 {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    align-items: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    img {
+      height: auto;
+      max-height: 28em; 
+    }
+
+    p {
+      font-size: 16px;
+      margin: 1rem;
+      text-align: left;
+    }
+  }
+
+  #imageyup {
+    max-height: 35em;
+    margin-left: 3em;
+  }
+
+  #imageyup2 {
+    margin-left: 2em;
+
+  }
+
+  .border-instructions {
+    display: none;
+  }
+
+  .gotit {
+    grid-template-areas: "title" "button" "slider";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 0;
+    padding: 1rem;
+
+    .gotitheader {
+      padding-inline-start: 0;
+      text-align: center;
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .button-panel {
+      padding-inline-end: 0;
+      justify-content: center;
+
+      button {
+        width: 100%;
+        max-width: 20rem;
+      }
+    }
+  }
+
+  .slider {
+    height: 200px;
+    margin-top: 2rem;
+    width: 100%;
+
+    &::before, &::after {
+      height: 150px;
+      width: 150px;
+    }
+
+    .slide-track {
+      width: calc(150px * 14);
+    }
+
+    .slide {
+      height: 150px;
+      width: 120px;
+    }
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 1rem;
+
+    img {
+      margin: 0 auto 1rem auto;
+      width: 80%;
+    }
+
+    .yearfooter {
+      margin: auto;
+    }
+  }
+
+  .instr1, .instr2, .instr3, .gotit {
+    max-height: none;
+  }
+}

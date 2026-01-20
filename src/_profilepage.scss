@@ -2,13 +2,16 @@
 
 .profileWrapper {
     align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .profileContainer {
     background-color: variables.$secondary-color;
     color: variables.$body-text-color;
     width: 50rem;
-    max-height: 60vh;
+    min-height: 60vh;
+    max-height: 70vh;
     margin: 2.5rem auto auto auto;
 
     display: grid;
@@ -34,10 +37,19 @@
     margin-top: 1rem;
 }
 
+.tab {
+    max-height: 40rem;
+    min-height: 40rem;
+}
+
 .profilebanner {
     grid-area: banner;
-    max-height: 15rem;
-    background-color: variables.$cafe-brown;
+    max-height: 15em;
+    display: flex;
+    justify-content: center;
+
+    background: url(./assets/footahsmall.gif) no-repeat center center fixed;
+    background-size: cover; 
 }
 
 .profilepicture {
@@ -70,4 +82,315 @@
     width: 45%;
     height: 6rem;
     margin-bottom: 10px;
+}
+
+#main-notepad {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 2px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 15px;
+
+  padding: 10px;
+}
+
+#header-notepad,
+#navbar-notepad,
+#navbar-notepad ul {
+  z-index: 9999;
+  height: 30px;
+}
+
+#navbar-notepad ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+#navbar-notepad li {
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+#navbar-notepad li:hover {
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-y: hidden;
+}
+
+#how-it-works {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+}
+
+#how-it-works ul {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  line-height: 2;
+  box-sizing: border-box;
+  background-color: rgb(241, 241, 241);
+}
+
+#how-it-works li:not(:first-child) {
+  margin-top: 15px;
+}
+
+#how-it-works strong {
+  text-transform: uppercase;
+}
+
+#how-it-works p {
+  margin: 0;
+}
+
+#how-it-works .fas {
+  width: 25px;
+  text-align: center;
+}
+
+.sticky {
+  display: none;
+  flex-direction: column;
+  font-size: 14px; 
+  line-height: 1.4;
+  width: 100px;
+  min-height: 100px;
+  background: variables.$primary-color;
+  color: variables.$body-text-color;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.sticky:hover {
+  transform: scale(1.05);
+}
+
+.sticky-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sticky-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sticky-content::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.sticky-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.sticky:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.sticky:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.sticky-header {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.sticky-header-menu {
+  font-weight: bold;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  display: block;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.sticky-header-menu:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sticky-content {
+  padding: 10px 10px 0 10px;
+  color: variables.$body-text-color;
+  overflow-y: auto;
+  width: 95px;
+  min-height: 70px;
+  box-sizing: border-box;
+  border: 0;
+  resize: vertical;
+  background-color: transparent;
+  display: block;
+  cursor: default;
+}
+
+.sticky-content:focus {
+  outline: none;
+}
+
+#createStickyBtn {
+  float: left;
+  padding: 15px 15px 10px;
+  margin: 10px;
+  width: 70px;
+  height: 70px;
+  user-select: none;
+  padding: 10px;
+  border-radius: 0;
+  text-align: center;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 50px;
+  vertical-align: top;
+}
+
+#createStickyBtn:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content-hide {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  left: 0;
+  width: 270px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.dropdown-content-show {
+  top: 30px;
+  left: 0;
+}
+
+.dropdown-content-hide div {
+  padding: 14px 14px;
+  flex: 1;
+}
+
+.drop-button {
+  margin-left: auto;
+}
+
+.notSaved {
+  display: none;
+}
+
+.notSaved:hover {
+  background-color: transparent;
+  cursor: auto;
+}
+
+@media (max-width: 1024px) {
+  .sticky {
+    line-height: 1.2;
+    width: 200px;
+    min-height: 180px;
+    margin: 20px;
+  }
+
+  .sticky-content {
+    width: 200px;
+    min-height: 170px;
+    font-size: 16px;
+  }
+
+  .dropdown-content-hide {
+    width: 200px;
+  }
+
+  #createStickyBtn {
+    margin: 20px;
+    width: 200px;
+    height: 180px;
+
+    padding: 0;
+    line-height: 150px;
+  }
+
+  #header-notepad,
+  #how-it-works {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .sticky {
+    line-height: 1.2;
+    width: 40px;
+    min-height: 40px;
+    margin: 15px;
+  }
+
+  .sticky-content {
+    width: 130px;
+    min-height: 115px;
+    font-size: 14px;
+  }
+
+  .dropdown-content-hide {
+    width: 130px;
+  }
+
+  .dropdown-content-hide div {
+    padding: 10px 10px;
+  }
+
+  #createStickyBtn {
+    margin: 15px;
+    width: 140px;
+    height: 140px;
+    padding: 0;
+    font-size: 90px;
+  }
+
+  #header-notepad,
+  #how-it-works {
+    font-size: 12px;
+  }
+  #how-it-works {
+    top: 30px;
+  }
+  .sticky-header-menu {
+    padding: 0 10px 0 0;
+    width: 25px;
+    margin: 0 3px;
+  }
+
+  .drop-button {
+    margin-left: auto;
+  }
+
+  .sticky-header {
+    justify-content: space-around;
+  }
+
+  #header-notepad,
+  #navbar-notepad,
+  #navbar-notepad ul {
+    height: 30px;
+  }
 }

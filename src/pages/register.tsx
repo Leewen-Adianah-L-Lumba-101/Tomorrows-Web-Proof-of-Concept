@@ -1,8 +1,10 @@
 // REACT COMPONENT PAGE FOR MAIN NAVIGATIONS
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import LoginMorpher from '../components/LoginMorpher';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { FaTrashAlt } from 'react-icons/fa';
+import styles2 from '../_components.module.scss';
 
 // In order to connect to the MONGODB and Emailer servers,
 // the library 'concurrently' was installed to run both of simultaneously
@@ -50,10 +52,16 @@ export default function Register() {
     }
   }
 
+  function clearCanvas() {
+    // Reload the page to clear the canvas
+    window.location.reload();
+  }
+
   return (
     <div className="wrapper signUp">
-      <div className="illustration">
-        <LoginMorpher />
+      <div className="illustration canvas-register">
+        <h3>Start doodling!</h3>
+        <LoginMorpher/>
       </div>
       
       <div className="form">

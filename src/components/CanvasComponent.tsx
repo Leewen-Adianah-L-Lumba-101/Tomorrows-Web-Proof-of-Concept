@@ -228,7 +228,8 @@ export const CanvasComponent = React.forwardRef<CanvasComponentHandle, CanvasCom
 
   // This is a callback when the user attempts to download the canvas image
   const downloadImage = useCallback(() => {
-    const canvas = canvasRef.current; if (!canvas) return;
+    const canvas = canvasRef.current; 
+    if (!canvas) return;
     const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--canvas-background').trim();
     const tempCanvas = document.createElement('canvas'); tempCanvas.width = canvas.width; tempCanvas.height = canvas.height;
     const tempCtx = tempCanvas.getContext('2d');

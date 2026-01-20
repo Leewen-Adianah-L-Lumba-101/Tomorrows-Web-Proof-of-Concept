@@ -12,7 +12,7 @@
   margin-top: 5rem;
   margin-bottom: 5rem;
   height: 100%;
-  min-height: 0;
+  min-height: 500px;
 }
 
 .canvasContainer {
@@ -24,7 +24,7 @@
   background-color: white;
   width: 100%;
   min-height: 100%;
-  min-width: 0;
+  min-width: 500px;
 }
 
 /* Responsive adjustments */
@@ -33,6 +33,11 @@
     padding: 1.5rem;
     flex-direction: column;
     align-items: stretch;
+    min-width: 1500px;
+  }
+
+  .canvasContainer {
+    min-width: 600px;
   }
 }
 

@@ -68,7 +68,7 @@ export default function Home() {
                 </div>
                 
                 <div className='instrcontainerright'>
-                  <img src = "src\assets\instr2-img.svg"></img>
+                  <img id = "imageyup" src = "src\assets\instr2-img.svg"></img>
                   <div className=''>
                     <h2>2. Hang it Up</h2>
                     <p> All works are automatically saved to your private gallery regardless of visibility!
@@ -105,7 +105,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className='instrcontainerleft'>
-                  <img src = "src\assets\instr3-img.svg"></img>
+                  <img id = "imageyup2" src = "src\assets\instr3-img.svg"></img>
                   <div className=''>
                     <h2>3. View your Work</h2>
                     <p> Click the top left icon to view the public gallery or your profile!
@@ -142,8 +142,10 @@ export default function Home() {
 
                 </div>
 
+                {/* This section is the gallery preview near the footer */}
                 <div className="slider">
                   <div className="slide-track">
+                    
                     <div className="slide">
                       <img src="src/assets/single-panel.png" width="250" alt="" />
                     </div>

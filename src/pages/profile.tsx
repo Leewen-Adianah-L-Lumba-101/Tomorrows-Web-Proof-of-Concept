@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import Navigator from '../components/Header'
 import BackToTop from '../components/BacktoTop'
 import { Link } from 'react-router-dom';
+import Notepad from '../components/Notepad'
 
 // These are strictly GUI component stuff
 import * as React from 'react';
@@ -17,8 +18,6 @@ export default function Profile() {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
-
-  // const classes = useStyles
 
   return (
     <div className="profileWrapper">
@@ -42,21 +41,23 @@ export default function Profile() {
             <TabContext value={value}>
               <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
               <TabList onChange={handleChange} aria-label="profile tabs">
-                <Tab label="Gallery" value="1" />
-                <Tab label="Preferences" value="2" />
+                <Tab label="Notepad" value="1" />
+                <Tab label="Gallery" value="2" />
+                 <Tab label="Preferences" value="3" />
               </TabList>
             </Box>
+
             <TabPanel value="1">
+              <Notepad />
+            </TabPanel>
+
+            <TabPanel value="2">
               <div className="profilegallery">
                 <div className="gallerythumbnail"></div>
                 <div className="gallerythumbnail"></div>
                 <div className="gallerythumbnail"></div>
                 <div className="gallerythumbnail"></div>
               </div>
-            </TabPanel>
-
-            <TabPanel value="2">
-
             </TabPanel>
             
             </TabContext>
